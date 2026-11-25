@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home Plate on the Trail | Dunedin, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Caveat+Brush&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--teal:#1fb8c3;--deep:#0b3a4a;--navy:#0e2233;--sun:#ffc93c;--cream:#fdf6e7;--red:#e2463b}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--navy);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.A{font-family:'Alfa Slab One',serif;text-transform:uppercase;line-height:.88;letter-spacing:.005em;font-weight:400}
+.H{font-family:'Caveat Brush',cursive}
+.lab{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
+
+.loader{background:var(--teal);flex-direction:column;color:var(--cream)}
+.loader .A{font-size:120px;color:var(--navy)}
+.loader .H{font-size:46px;color:var(--cream);margin-top:6px}
+
+nav{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center;padding:12px 14px 12px 26px;border-radius:16px;background:rgba(14,34,51,.35);backdrop-filter:blur(16px) saturate(1.5);-webkit-backdrop-filter:blur(16px) saturate(1.5);border:1px solid rgba(255,255,255,.18);color:var(--cream)}
+nav .logo{font-family:'Alfa Slab One';font-size:22px;letter-spacing:.04em}
+nav .logo i{font-family:'Caveat Brush';font-style:normal;color:var(--sun);font-size:24px;margin-left:6px}
+nav .links{display:flex;gap:32px}
+nav .call{background:var(--sun);color:var(--navy);padding:12px 20px;border-radius:12px;transition:.3s}
+nav .call:hover{background:var(--cream)}
+
+.hero{position:relative;height:100vh;min-height:900px;overflow:hidden;color:var(--cream)}
+.hero .kb img{filter:saturate(1.15) brightness(.78)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,58,74,.55),rgba(11,58,74,.1) 35%,rgba(11,58,74,.2) 60%,var(--deep) 100%);pointer-events:none}
+.hero .t{position:absolute;left:52px;bottom:70px;z-index:3}
+.hero .t .H{font-size:64px;color:var(--sun);transform:rotate(-4deg);display:inline-block;margin-bottom:6px}
+.hero .t .A{font-size:200px;text-shadow:0 10px 40px rgba(0,0,0,.35)}
+.hero .t .A .o{color:transparent;-webkit-text-stroke:3px var(--cream);text-shadow:none}
+.hero .card{position:absolute;right:52px;bottom:80px;z-index:4;width:400px;padding:26px 28px;border-radius:20px;font-size:16px;line-height:1.6}
+.ball{position:absolute;right:90px;top:140px;z-index:4;width:170px;height:170px;animation:spin 12s linear infinite}
+
+.marq{background:var(--sun);color:var(--navy);padding:18px 0;border-top:3px solid var(--navy);border-bottom:3px solid var(--navy)}
+.marq span{font-family:'Alfa Slab One';font-size:42px;text-transform:uppercase;padding-right:24px}
+.marq i{font-style:normal;font-size:38px;padding-right:24px}
+
+/* SCOREBOARD */
+.score{background:var(--deep);color:var(--cream);padding:120px 52px}
+.score h2{font-size:30px;margin-bottom:40px;color:var(--sun)}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cell{background:#082a36;border:2px solid #155266;border-radius:14px;padding:30px 26px;box-shadow:inset 0 0 40px rgba(0,0,0,.35)}
+.cell .A{font-size:110px;color:var(--sun);text-shadow:0 0 18px rgba(255,201,60,.55)}
+.cell p{margin-top:12px;font-size:13px;letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+
+/* LINEUP (hover list) */
+.lineup{padding:140px 52px 150px;position:relative}
+.lineup .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px}
+.lineup .top .A{font-size:150px;color:var(--deep)}
+.lineup .top .H{font-size:44px;color:var(--teal);max-width:420px;text-align:right;line-height:1}
+.bat{display:grid;grid-template-columns:120px 1fr auto;align-items:center;border-top:3px solid var(--navy);padding:18px 0;position:relative;z-index:2;transition:background .3s,padding .3s}
+.bat:last-child{border-bottom:3px solid var(--navy)}
+.bat .n{font-family:'Alfa Slab One';font-size:46px;color:var(--teal)}
+.bat h3{font-family:'Alfa Slab One';font-size:76px;text-transform:uppercase;font-weight:400;line-height:.95;transition:color .3s,transform .4s cubic-bezier(.3,1.6,.5,1)}
+.bat .H{font-size:32px;color:var(--red)}
+.bat:hover{background:var(--teal);padding:18px 26px}
+.bat:hover h3{color:var(--cream);transform:skewX(-6deg)}
+.bat:hover .n{color:var(--sun)}
+
+/* COLLAGE */
+.col{position:relative;height:1450px;background:var(--cream)}
+.col .w{position:absolute;font-size:200px;z-index:3;pointer-events:none;color:var(--deep)}
+.col .w.H{font-family:'Caveat Brush';text-transform:none;color:var(--red);font-size:180px}
+.col .ph{position:absolute;overflow:hidden;z-index:1;border-radius:22px;border:6px solid #fff;box-shadow:0 20px 50px rgba(14,34,51,.18)}
+.col .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.col .ph:hover img{transform:scale(1.08)}
+.col .ph figcaption{position:absolute;left:12px;bottom:10px;font-family:'Caveat Brush';font-size:26px;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+
+/* CARDS h-scroll */
+.hs{background:var(--teal)}
+.hs .hs-track{align-items:center}
+.hs .intro{flex:0 0 560px;color:var(--navy)}
+.hs .intro .A{font-size:150px}
+.hs .intro .H{font-size:44px;color:var(--cream);display:block;margin-top:14px}
+.bcard{flex:0 0 400px;height:560px;background:var(--cream);border-radius:18px;border:8px solid #fff;box-shadow:0 30px 60px rgba(14,34,51,.3);display:flex;flex-direction:column;overflow:hidden}
+.bcard .im{height:250px;overflow:hidden}.bcard .im img{width:100%;height:100%;object-fit:cover}
+.bcard .b{padding:24px;display:flex;flex-direction:column;justify-content:space-between;flex:1}
+.bcard p{font-size:22px;line-height:1.35;font-weight:500}
+.bcard .who{display:flex;justify-content:space-between;align-items:center;border-top:2px dashed var(--navy);padding-top:12px}
+.bcard .stars{color:var(--red);letter-spacing:3px}
+.bcard:nth-child(odd){rotate:-2deg}.bcard:nth-child(even){rotate:2deg}
+.big{flex:0 0 560px;font-family:'Alfa Slab One';font-size:300px;color:var(--navy);line-height:.8}
+
+/* VISIT */
+.visit{position:relative;height:100vh;min-height:880px;overflow:hidden;display:flex;align-items:center;justify-content:flex-end;padding:0 52px}
+.visit>img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+.visit::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 30%,rgba(11,58,74,.6))}
+.visit .panel{position:relative;z-index:2;width:640px;padding:46px;border-radius:26px;background:rgba(253,246,231,.55);color:var(--navy)}
+.visit h2{font-size:110px;color:var(--deep)}
+.visit h2 .H{font-family:'Caveat Brush';text-transform:none;color:var(--red);font-size:.8em}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:30px 0}
+.vg .lab{color:var(--teal);display:block;margin-bottom:8px}
+.vg p{font-size:20px;line-height:1.4}
+.btn{display:inline-flex;gap:14px;background:var(--navy);color:var(--sun);padding:18px 30px;border-radius:14px;font-family:'Alfa Slab One';font-size:18px;letter-spacing:.06em;text-transform:uppercase;transition:.3s}
+.btn:hover{gap:24px;background:var(--red);color:var(--cream)}
+footer{background:var(--navy);color:var(--cream);padding:46px 52px 28px;overflow:hidden}
+footer .A{font-size:13.5vw;color:var(--teal);text-align:center}
+footer .f{display:flex;justify-content:space-between;margin-top:18px;color:var(--sun)}
+.static .hs{height:auto}.static .hs-sticky{position:relative}
+
+@media (max-width:820px){
+ .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:110px 20px 40px;gap:18px}
+ .hero .t{position:relative;left:auto;bottom:auto}.hero .t .A{font-size:21vw}.hero .t .H{font-size:30px}
+ .hero .card{position:relative;right:auto;bottom:auto;width:100%;z-index:4}
+ .ball{width:96px;height:96px;right:18px;top:96px}
+ .marq span,.marq i{font-size:26px}
+ .score{padding:60px 20px}.board{grid-template-columns:1fr 1fr;gap:12px}.cell{padding:20px 16px}.cell .A{font-size:16vw}
+ .lineup{padding:70px 20px}.lineup .top{flex-direction:column;align-items:flex-start;gap:10px}.lineup .top .A{font-size:17vw}.lineup .top .H{text-align:left;font-size:28px}
+ .bat{grid-template-columns:44px 1fr}.bat .H{display:none}.bat h3{font-size:8.5vw}.bat .n{font-size:26px}.bat:hover{padding:18px 10px}
+ .col .w.H{font-size:16vw!important}
+ .hs .intro .A{font-size:22vw}.bcard{rotate:0deg!important}.bcard .im{height:200px}.big{font-size:30vw!important}
+ .visit{height:auto;min-height:0;padding:300px 14px 24px;justify-content:center}.visit .panel{width:100%;padding:26px}.visit h2{font-size:15vw}.vg{gap:18px}.vg p{font-size:16px}
+ nav .logo{font-size:18px} nav .logo i{display:none}
+ footer .A{font-size:17vw}footer .f{flex-direction:column;gap:8px}
+}
+</style></head>
+<body data-book="book.html" data-pvlabel="A preview made for Home Plate on the Trail">
+
+<div class="loader"><div class="A split">Home Plate</div><div class="H">breakfast &amp; lunch all day</div></div>
+
+<nav><div class="logo">HOME PLATE<i>on the Trail</i></div><div class="links lab"><a href="#menu">Menu</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div><a class="call lab" href="tel:7279539812" data-cursor="CALL">(727) 953-9812</a></nav>
+
+<section class="hero">
+<div class="kb"><img src="img/gm02.jpg" alt=""><img src="img/gm01.jpg" alt=""><img src="img/gm08.jpg" alt=""><img src="img/gm03.jpg" alt=""></div>
+<svg class="ball" viewBox="0 0 170 170"><circle cx="85" cy="85" r="80" fill="#fdf6e7"/><path d="M38 22 C70 60,70 110,38 148" stroke="#e2463b" stroke-width="4" fill="none" stroke-dasharray="8 7"/><path d="M132 22 C100 60,100 110,132 148" stroke="#e2463b" stroke-width="4" fill="none" stroke-dasharray="8 7"/><defs><path id="hp" d="M85,85 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs><text font-family="Space Grotesk" font-weight="700" font-size="11.5" letter-spacing="3" fill="#0e2233"><textPath href="#hp">ACROSS FROM TD BALLPARK ✦ DUNEDIN ✦</textPath></text></svg>
+<div class="t"><span class="H">Dunedin's breakfast spot on the Trail</span><div class="A split">Home</div><div class="A split o">Plate.</div></div>
+<div class="card glass" data-reveal>Big plates, friendly faces and a patio right on the Pinellas Trail. Breakfast &amp; lunch all day, every day.</div>
+</section>
+
+<div class="marq"><div><span>Corned Beef Hash</span><i>⚾</i><span>Eggs Benedict</span><i>⚾</i><span>Schnitzel</span><i>⚾</i><span>Home Fries</span><i>⚾</i><span>Pumpkin Pancakes</span><i>⚾</i><span>Corned Beef Hash</span><i>⚾</i><span>Eggs Benedict</span><i>⚾</i><span>Schnitzel</span><i>⚾</i><span>Home Fries</span><i>⚾</i><span>Pumpkin Pancakes</span><i>⚾</i></div></div>
+
+<section class="score">
+<h2 class="lab">Tonight's box score · every morning</h2>
+<div class="board">
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="4.5" data-dec="1">0</span></div><p>Star rating</p></div>
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="932">0</span></div><p>Google reviews</p></div>
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="7">0</span>AM</div><p>Doors open daily</p></div>
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="75">0</span></div><p>Reviews love the patio</p></div>
+</div></section>
+
+<section class="lineup" id="menu">
+<div class="top"><div class="A split">The Lineup</div><div class="H" data-reveal>hover a dish. everything prepared fresh.</div></div>
+<div class="hoverlist">
+<div class="bat" data-img="img/gm09.jpg" data-cursor="YUM"><span class="n">01</span><h3>Corned Beef Hash</h3><span class="H">the regulars' MVP</span></div>
+<div class="bat" data-img="img/gm02.jpg" data-cursor="YUM"><span class="n">02</span><h3>Eggs Benedict</h3><span class="H">hollandaise for days</span></div>
+<div class="bat" data-img="img/gm01.jpg" data-cursor="YUM"><span class="n">03</span><h3>Avocado Toast</h3><span class="H">"one of the best breakfasts"</span></div>
+<div class="bat" data-img="img/gm03.jpg" data-cursor="YUM"><span class="n">04</span><h3>Build-Your-Own Omelette</h3><span class="H">your call</span></div>
+<div class="bat" data-img="img/gm08.jpg" data-cursor="YUM"><span class="n">05</span><h3>Schnitzel &amp; Lunch</h3><span class="H">+ hamburger soup</span></div>
+</div></section>
+
+<section class="col">
+<div class="w A split" style="left:60px;top:30px">Big plates.</div>
+<figure class="ph" data-speed=".2" style="left:880px;top:10px;width:460px;height:420px;rotate:3deg"><img src="img/gm02.jpg" alt=""><figcaption>benny, extra sauce</figcaption></figure>
+<figure class="ph" data-speed="-.12" style="left:100px;top:300px;width:420px;height:300px;rotate:-3deg"><img src="img/gm04.jpg" alt=""><figcaption>come on in</figcaption></figure>
+<div class="w H split" style="left:520px;top:560px">friendly faces</div>
+<figure class="ph" data-speed=".25" style="left:640px;top:820px;width:420px;height:300px;rotate:-2deg"><img src="img/gm06.jpg" alt=""><figcaption>right on the Pinellas Trail</figcaption></figure>
+<figure class="ph" data-speed="-.18" style="left:1110px;top:700px;width:250px;height:360px;rotate:4deg"><img src="img/gm05.jpg" alt=""><figcaption>breakfast all day</figcaption></figure>
+<div class="w A split" style="left:70px;top:1150px">&amp; the Trail.</div>
+<figure class="ph" data-speed=".1" style="left:140px;top:820px;width:340px;height:240px;rotate:2deg"><img src="img/gm07.jpg" alt=""><figcaption>made fresh</figcaption></figure>
+</section>
+
+<section class="hs" id="reviews"><div class="hs-sticky"><div class="hs-track">
+<div class="intro"><div class="A split">Fan</div><div class="A split">mail</div><span class="H">keep scrolling →</span></div>
+<div class="bcard tilt"><div class="im"><img src="img/gm06.jpg" alt=""></div><div class="b"><p>"What a gem in Dunedin! We enjoyed sitting on the patio to watch the by passers on the Trail."</p><div class="who lab"><span>Lisa H.</span><span class="stars">★★★★★</span></div></div></div>
+<div class="bcard tilt"><div class="im"><img src="img/gm09.jpg" alt=""></div><div class="b"><p>"It is a small quaint little place packed with personality and flavor!"</p><div class="who lab"><span>Google review</span><span class="stars">★★★★★</span></div></div></div>
+<div class="bcard tilt"><div class="im"><img src="img/gm04.jpg" alt=""></div><div class="b"><p>"Good prices, lots of food for your money, service was wonderful."</p><div class="who lab"><span>Google review</span><span class="stars">★★★★★</span></div></div></div>
+<div class="bcard tilt"><div class="im"><img src="img/gm08.jpg" alt=""></div><div class="b"><p>"Everything is prepared fresh and was delicious. Highly recommend the Hamburger Soup!"</p><div class="who lab"><span>Kitty W.</span><span class="stars">★★★★★</span></div></div></div>
+<div class="big">4.5★</div>
+</div></div></section>
+
+<section class="visit" id="visit"><img src="img/gm00.jpg" alt="" data-speed=".14">
+<div class="panel glass" data-reveal><h2 class="A">Swing <span class="H">by.</span></h2>
+<div class="vg"><div><span class="lab">Find us</span><p>234 Douglas Ave<br>Dunedin, FL 34698</p></div><div><span class="lab">Hours</span><p>Every day<br>7 AM – 2:30 PM</p></div><div><span class="lab">Call</span><p>(727) 953-9812</p></div><div><span class="lab">Parking tip</span><p>Right across from<br>TD Ballpark</p></div></div>
+<a class="btn" href="#" data-cursor="GO">Get directions <span>→</span></a></div></section>
+
+<footer><div class="A">Home Plate</div><div class="f lab"><span>On the Trail · Dunedin, Florida</span><span>© 2027</span></div></footer>
+<script src="../fx/fx.js"></script>
+<script>
+(()=>{const st=location.hash==='#static';document.querySelectorAll('.cnt').forEach(el=>{const to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0);const fin=()=>el.textContent=to.toFixed(dec);if(st)return fin();
+new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1600),v=to*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec);if(p<1)requestAnimationFrame(f)})(t0)})},{threshold:.4}).observe(el)})})();
+</script>
+</body></html>
