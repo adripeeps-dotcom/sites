@@ -56,16 +56,16 @@ a{color:inherit;text-decoration:none}
 .p4{background:var(--cactus);padding:140px 52px 40px}
 .p4 .head{display:flex;justify-content:space-between;align-items:flex-end}
 .p4 h2{font-size:84px;color:var(--cream)}.p4 .head .P{font-size:24px;max-width:340px;text-align:right}
-.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:30px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:40px}
 .cols>div{border-top:3px dashed rgba(246,234,212,.5);padding-top:16px}
 .cols h4{font-family:'Rye';font-weight:400;font-size:24px;color:var(--gold);margin-bottom:12px}
-.cols p{font-size:16px;line-height:1.4;margin-bottom:10px}.cols p b{display:block;font-size:17px}
+.cols p{font-size:19px;line-height:1.4;margin-bottom:14px}.cols p b{display:block;font-size:21px}
 
-.p5{background:#2a1a0f;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 90px);padding:140px 52px 60px}
+.p5{display:flex;flex-direction:column;justify-content:center;background:#2a1a0f;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 2px,transparent 2px 90px);padding:140px 52px 60px}
 .p5 h2{font-size:84px;color:var(--gold)}
 .rail{position:relative;margin-top:50px;height:6px;background:#9a9a9a;border-radius:4px}
 .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;position:relative;top:-6px;padding:0 10px}
-.tick{background:#fbf6ea;color:#222;padding:44px 26px 28px;font-family:'Special Elite',monospace;font-size:19px;line-height:1.4;box-shadow:0 18px 30px rgba(0,0,0,.45);transform-origin:50% 0;animation:sway 5s ease-in-out infinite;clip-path:polygon(0 0,100% 0,100% 100%,95% 97%,90% 100%,85% 97%,80% 100%,75% 97%,70% 100%,65% 97%,60% 100%,55% 97%,50% 100%,45% 97%,40% 100%,35% 97%,30% 100%,25% 97%,20% 100%,15% 97%,10% 100%,5% 97%,0 100%);position:relative}
+.tick{background:#fbf6ea;color:#222;padding:44px 26px 28px;font-family:'Special Elite',monospace;font-size:24px;line-height:1.45;min-height:380px;box-shadow:0 18px 30px rgba(0,0,0,.45);transform-origin:50% 0;animation:sway 5s ease-in-out infinite;clip-path:polygon(0 0,100% 0,100% 100%,95% 97%,90% 100%,85% 97%,80% 100%,75% 97%,70% 100%,65% 97%,60% 100%,55% 97%,50% 100%,45% 97%,40% 100%,35% 97%,30% 100%,25% 97%,20% 100%,15% 97%,10% 100%,5% 97%,0 100%);position:relative}
 .tick::before{content:"";position:absolute;left:50%;top:-4px;width:14px;height:34px;background:#9a9a9a;border-radius:4px;transform:translateX(-50%)}
 .tick:nth-child(2){animation-delay:-1.5s;margin-top:20px}.tick:nth-child(3){animation-delay:-3s}
 .tick .hd{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.15em;text-transform:uppercase;border-bottom:2px dashed #999;padding-bottom:8px;margin-bottom:14px}
@@ -82,6 +82,7 @@ footer{background:var(--ink);padding:36px 52px 110px;display:flex;justify-conten
 footer .R{font-size:44px;color:var(--terra)}
 
 @media (max-width:820px){
+ .tick{font-size:19px!important;min-height:0!important}
  .flags{height:44px}.top{top:56px;left:12px;right:12px}.top .badge{font-size:15px}.top a{padding:10px 14px;font-size:12px}
  .panel{position:relative;height:auto;min-height:0}
  .p1{min-height:100svh}.p1 .wrap{left:20px;right:20px;bottom:40px}.p1 h1{font-size:17vw}.p1 h2{font-size:26px}.p1 .stamp{width:120px;height:120px;right:16px;top:130px}.p1 .stamp .R{font-size:38px}.p1 .stamp .lab{font-size:9px}
@@ -103,7 +104,7 @@ footer .R{font-size:44px;color:var(--terra)}
 <div class="wrap"><h1 class="R split">El Establo</h1><h2 class="P">Handmade tortillas, made like home.</h2>
 <p>Pupusas, street tacos, carne asada and whole fried snapper, in a hand-built dining room that feels like a cozy Mexican home, right on Hypoluxo Road.</p></div></section>
 
-<section class="panel p2"><div class="l"><span class="lab">Lo que dicen</span><div class="R huge"><span class="cnt" data-to="138">0</span></div><h3 class="R">reviews, 4.4 stars</h3><p>"The tacos tasted authentically Mexican, and I'm saying that as someone from Mexico." Come for the tacos, stay for the carne asada and the oysters.</p></div>
+<section class="panel p2"><div class="l"><span class="lab">Lo que dicen</span><div class="R huge"><span class="cnt" data-to="138">138</span></div><h3 class="R">reviews, 4.4 stars</h3><p>"The tacos tasted authentically Mexican, and I'm saying that as someone from Mexico." Come for the tacos, stay for the carne asada and the oysters.</p></div>
 <div class="r"><img src="img/gm04.jpg" alt="Tacos on a talavera plate"><span class="tag">tacos on a talavera plate</span></div></section>
 
 <section class="panel p3"><div class="head"><h2 class="R">La Cocina</h2><span class="P">drag the plates &rarr;</span></div>
