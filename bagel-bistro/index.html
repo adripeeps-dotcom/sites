@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bagel Bistro | Tequesta, Florida</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--red:#c4122f;--navy:#1d2756;--mint:#cfe8dd;--cream:#faf4e8;--sun:#f4b400;--seed:#f3e2b3}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--navy);font-family:'Inter',sans-serif;overflow-x:clip}
+.A{font-family:'Archivo Black',sans-serif;line-height:.88;letter-spacing:-.01em}
+.S{font-family:'DM Serif Display',serif}
+.H{font-family:'Caveat',cursive;font-weight:600}
+.lab{font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:800}
+.loader{background:var(--red);color:#fff;flex-direction:column}
+.loader .A{font-size:130px}.loader .H{font-size:36px;margin-top:10px}
+nav{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center;padding:10px 12px 10px 24px;border-radius:60px;background:rgba(250,244,232,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(29,39,86,.12)}
+nav .logo{font-family:'Archivo Black';font-size:20px;color:var(--red);line-height:.9}
+nav .logo i{display:block;font:600 10px 'Inter';letter-spacing:.3em;color:var(--navy);font-style:normal;margin-top:3px}
+nav .links{display:flex;gap:30px}nav .links a{color:var(--navy);text-decoration:none}
+nav .call{background:var(--red);color:#fff;padding:13px 22px;border-radius:40px;text-decoration:none}
+/* hero */
+.hero{position:relative;height:100vh;min-height:720px;overflow:hidden;background:var(--navy);color:#fff}
+.hero .kb img{filter:brightness(.55) saturate(1.1)}
+.hero .t{position:absolute;left:56px;bottom:84px;z-index:3;right:56px}
+.hero .t .H{font-size:44px;color:var(--sun);display:block;margin-bottom:6px}
+.hero h1{font-size:200px}
+.hero h1.o{color:var(--red);-webkit-text-stroke:0;text-shadow:0 0 0 #fff}
+.hero .card{position:absolute;right:56px;top:130px;z-index:3;width:330px;padding:24px;border-radius:22px;font-size:16px;line-height:1.55}
+.bagel{position:absolute;right:120px;bottom:90px;width:260px;height:260px;z-index:3;animation:spin 30s linear infinite}
+/* marquee */
+.marq{background:var(--red);color:#fff;padding:20px 0;font-family:'Archivo Black';font-size:40px;white-space:nowrap}
+.marq i{font-style:normal;color:var(--sun);margin:0 26px}
+/* score */
+.score{padding:110px 56px 80px;background:var(--mint)}
+.score h2{margin-bottom:36px}
+.board{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.cell{background:#fff;border-radius:24px;padding:30px;box-shadow:0 14px 30px rgba(29,39,86,.1)}
+.cell .A{font-size:84px;color:var(--red)}.cell p{margin-top:10px;font-weight:600}
+/* menu */
+.lineup{background:var(--navy);color:#fff;padding:120px 56px}
+.lineup .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}
+.lineup .top .A{font-size:130px}.lineup .top .H{font-size:34px;color:var(--sun)}
+.bat{display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:baseline;padding:22px 0;border-top:1px solid rgba(255,255,255,.2);transition:padding .35s,background .35s}
+.bat:hover{padding-left:24px;background:rgba(196,18,47,.4)}
+.bat .n{font:800 14px 'Inter';color:var(--sun)}
+.bat h3{font-family:'Archivo Black';font-weight:400;font-size:58px;line-height:1}
+.bat .d{font-size:15px;opacity:.8;max-width:420px;text-align:right}
+.beach{margin-top:50px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.beach div{padding:22px;border-radius:18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15)}
+.beach b{font-family:'Archivo Black';font-weight:400;font-size:22px;display:block;color:var(--sun)}
+.beach span{font-size:14px;line-height:1.5;opacity:.85;display:block;margin-top:8px}
+/* collage */
+.col{position:relative;height:1350px;background:var(--cream);overflow:hidden}
+.col .w{position:absolute;white-space:nowrap}
+.col .ph{position:absolute;margin:0;box-shadow:0 30px 60px rgba(29,39,86,.25);border:10px solid #fff;background:#fff}
+.col .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.col figcaption{position:absolute;left:10px;bottom:-34px;font-family:'Caveat';font-size:26px;color:var(--red);background:var(--cream);padding:0 8px}
+/* reviews */
+.hs-sticky{background:var(--red);color:#fff}
+.intro{flex:0 0 480px}.intro .A{font-size:150px}.intro .H{font-size:34px;color:var(--sun)}
+.rc{flex:0 0 440px;background:var(--cream);color:var(--navy);border-radius:26px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;min-height:380px}
+.rc p{font-family:'DM Serif Display';font-size:34px;line-height:1.2}
+.rc .who{margin-top:24px;display:flex;justify-content:space-between;color:var(--red)}
+.big{flex:0 0 520px;font-family:'Archivo Black';font-size:260px;color:var(--sun);align-self:center}
+/* visit */
+.visit{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--navy)}
+.visit>img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;opacity:.7}
+.visit .panel{position:relative;z-index:2;width:min(720px,90vw);padding:44px;border-radius:28px;color:#fff;background:rgba(29,39,86,.5)}
+.visit h2{font-size:100px;margin-bottom:26px}.visit h2 .H{color:var(--sun)}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:30px}
+.vg .lab{color:var(--sun);display:block;margin-bottom:6px}.vg p{font-size:20px;line-height:1.4;font-weight:600}
+.btn{display:inline-block;background:var(--red);color:#fff;font-weight:800;padding:18px 30px;border-radius:50px;text-decoration:none}
+footer{background:var(--navy);color:#fff;padding:40px 56px;display:flex;justify-content:space-between;align-items:center}
+footer .A{font-size:70px;color:var(--red)}footer .f{display:flex;flex-direction:column;gap:6px;text-align:right}
+@media (max-width:820px){
+ nav .links{display:none}nav{left:12px;right:12px;top:12px}
+ .loader .A{font-size:22vw}
+ .hero{min-height:100svh}.hero .t{left:20px;right:20px;bottom:100px}.hero h1{font-size:25vw}.hero .t .H{font-size:30px}.hero .card{display:none}.bagel{width:110px;height:110px;right:16px;top:90px;bottom:auto}
+ .marq{font-size:26px}
+ .score{padding:60px 20px}.board{grid-template-columns:1fr 1fr;gap:12px}.cell{padding:20px}.cell .A{font-size:48px}
+ .lineup{padding:60px 20px}.lineup .top{flex-direction:column;align-items:flex-start}.lineup .top .A{font-size:20vw}
+ .bat{grid-template-columns:40px 1fr}.bat h3{font-size:28px}.bat .d{display:none}.beach{grid-template-columns:1fr}
+ .col{height:auto!important}.col .w{white-space:normal}.col .ph{height:62vw!important;border-width:8px}
+ .intro{flex-basis:70vw!important}.intro .A{font-size:20vw}.rc{min-height:0}.rc p{font-size:24px}.big{display:none}
+ .visit .panel{padding:28px 22px;margin:90px 0}.visit h2{font-size:17vw}.vg{grid-template-columns:1fr}.vg p{font-size:17px}
+ footer{flex-direction:column;gap:14px;padding:30px 20px 100px}footer .f{text-align:left}footer .A{font-size:18vw}
+}
+</style></head>
+<body data-book="book.html" data-pvlabel="A preview made for Bagel Bistro">
+<div class="loader"><div class="A split">BAGEL BISTRO</div><div class="H">Tequesta mornings</div></div>
+<nav><div class="logo">BAGEL BISTRO<i>TEQUESTA · FL</i></div><div class="links lab"><a href="#">Menu</a><a href="#">Reviews</a><a href="#">Visit</a></div><a class="call lab" href="#" data-cursor="CALL">(561) 575-1799</a></nav>
+
+<section class="hero"><div class="kb"><img src="img/gm12.jpg" alt="Bagel Bistro sign"><img src="img/gm18.jpg" alt="The counter and pastry case"><img src="img/gm04.jpg" alt="Blue chairs by the chalkboard menu"><img src="img/gm00.jpg" alt="Bagel Bistro storefront"></div>
+<svg class="bagel" viewBox="0 0 260 260" aria-hidden="true"><defs><path id="bp" d="M130,130 m-96,0 a96,96 0 1,1 192,0 a96,96 0 1,1 -192,0"/></defs><circle cx="130" cy="130" r="122" fill="#f0c36d" stroke="#c98a2c" stroke-width="3"/><circle cx="130" cy="130" r="44" fill="#1d2756"/><circle cx="130" cy="130" r="38" fill="#faf4e8" opacity=".95"/><g fill="#fff6dc"><ellipse cx="60" cy="90" rx="5" ry="2.5" transform="rotate(30 60 90)"/><ellipse cx="90" cy="48" rx="5" ry="2.5" transform="rotate(-20 90 48)"/><ellipse cx="170" cy="46" rx="5" ry="2.5" transform="rotate(50 170 46)"/><ellipse cx="214" cy="100" rx="5" ry="2.5"/><ellipse cx="216" cy="170" rx="5" ry="2.5" transform="rotate(70 216 170)"/><ellipse cx="170" cy="216" rx="5" ry="2.5" transform="rotate(10 170 216)"/><ellipse cx="96" cy="214" rx="5" ry="2.5" transform="rotate(-40 96 214)"/><ellipse cx="44" cy="160" rx="5" ry="2.5" transform="rotate(20 44 160)"/><ellipse cx="130" cy="30" rx="5" ry="2.5"/><ellipse cx="130" cy="232" rx="5" ry="2.5"/></g><text font-family="Inter" font-weight="800" font-size="13" letter-spacing="4" fill="#7a4a10"><textPath href="#bp">TEQUESTA'S BAGEL SHOP ✦ OPEN AT 6:30 AM ✦ </textPath></text></svg>
+<div class="t"><span class="H">Tequesta's neighborhood bagel shop</span><h1 class="A split">Bagel</h1><h1 class="A o split">Bistro.</h1></div>
+<div class="card glass" data-reveal>Soft, chewy bagels, cream cheese hand-whipped fresh every day, and breakfast sandwiches named for the beach just down the road.</div></section>
+
+<div class="marq"><div><span>Surfer Boy<i>✦</i>Tequesta Sunrise<i>✦</i>The Lighthouse<i>✦</i>Rip-Tide<i>✦</i>Beach Bum<i>✦</i>Nova Lox<i>✦</i>Fresh Crepes<i>✦</i></span><span>Surfer Boy<i>✦</i>Tequesta Sunrise<i>✦</i>The Lighthouse<i>✦</i>Rip-Tide<i>✦</i>Beach Bum<i>✦</i>Nova Lox<i>✦</i>Fresh Crepes<i>✦</i></span></div></div>
+
+<section class="score"><h2 class="A lab" style="font-size:13px">The shop in numbers</h2>
+<div class="board">
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="4.5" data-dec="1">4.5</span></div><p>Star rating</p></div>
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="359">359</span></div><p>Google reviews</p></div>
+<div class="cell" data-reveal><div class="A">6:30</div><p>AM, doors open</p></div>
+<div class="cell" data-reveal><div class="A"><span class="cnt" data-to="20">20</span>+</div><p>Bagel flavors</p></div>
+</div></section>
+
+<section class="lineup" id="menu"><div class="top"><div class="A split">The Menu</div><div class="H" data-reveal>hover a line. every sandwich on your choice of bagel, wrap or bread.</div></div>
+<div class="hoverlist">
+<div class="bat" data-img="img/gm18.jpg" data-cursor="YUM"><span class="n">01</span><h3>Beach Breakfasts</h3><span class="d">Bacon, egg and cheese, the beach-named way</span></div>
+<div class="bat" data-img="img/gm14.jpg" data-cursor="YUM"><span class="n">02</span><h3>Bagels &amp; Schmears</h3><span class="d">New York-style, hand-whipped cream cheese, gluten-free too</span></div>
+<div class="bat" data-img="img/gm16.jpg" data-cursor="YUM"><span class="n">03</span><h3>Nova Lox</h3><span class="d">Capers, onion, tomato, cream cheese</span></div>
+<div class="bat" data-img="img/gm10.jpg" data-cursor="YUM"><span class="n">04</span><h3>Fresh Crepes</h3><span class="d">Plus scones, muffins and coffee cake</span></div>
+<div class="bat" data-img="img/gm02.jpg" data-cursor="YUM"><span class="n">05</span><h3>Platters</h3><span class="d">For the office, the boat or Sunday brunch</span></div>
+</div>
+<div class="beach">
+<div data-reveal><b>Surfer Boy</b><span>Bacon, egg, cheese, lettuce, tomato</span></div>
+<div data-reveal><b>Tequesta Sunrise</b><span>Bacon, egg over easy, cheese, hash brown</span></div>
+<div data-reveal><b>The Lighthouse</b><span>Turkey, egg white, cheese, tomato</span></div>
+<div data-reveal><b>Rip-Tide</b><span>Roast beef, egg, cheese</span></div>
+<div data-reveal><b>Beach Bum</b><span>Ham, egg, cheese, lettuce, tomato</span></div>
+</div></section>
+
+<section class="col">
+<div class="w A split" style="left:60px;top:40px;font-size:150px;color:var(--red)">Fresh</div>
+<figure class="ph" data-speed=".18" style="left:780px;top:60px;width:480px;height:600px;rotate:3deg"><img src="img/gm14.jpg" alt=""><figcaption>lox and cream cheese</figcaption></figure>
+<figure class="ph" data-speed="-.12" style="left:90px;top:330px;width:440px;height:330px;rotate:-3deg"><img src="img/gm18.jpg" alt=""><figcaption>the counter</figcaption></figure>
+<div class="w S split" style="left:380px;top:690px;font-size:130px;font-style:italic;color:var(--navy)">every morning</div>
+<figure class="ph" data-speed=".22" style="left:110px;top:900px;width:380px;height:300px;rotate:2deg"><img src="img/gm04.jpg" alt=""><figcaption>settle in</figcaption></figure>
+<figure class="ph" data-speed="-.16" style="left:620px;top:900px;width:340px;height:340px;rotate:-2deg"><img src="img/gm10.jpg" alt=""><figcaption>crepes too</figcaption></figure>
+<figure class="ph" data-speed=".1" style="left:1010px;top:780px;width:340px;height:340px;rotate:4deg"><img src="img/gm16.jpg" alt=""><figcaption>for the crowd</figcaption></figure>
+<div class="w A split" style="left:860px;top:1180px;font-size:100px;color:var(--red)">Tequesta.</div>
+</section>
+
+<section class="hs" id="reviews"><div class="hs-sticky"><div class="hs-track">
+<div class="intro"><div class="A split">Locals</div><div class="A split">say it</div><span class="H">keep scrolling →</span></div>
+<div class="rc tilt"><p>"Such a cute little gem of a place. Service was amazing. Atmosphere was cozy."</p><div class="who lab"><span>Google review</span><span>★★★★★</span></div></div>
+<div class="rc tilt"><p>"Their bagels and cream cheese are incredible along with the rest of the menu."</p><div class="who lab"><span>Google review</span><span>★★★★★</span></div></div>
+<div class="rc tilt"><p>"Bagel choice is so good. Try the sun dried tomatoes &amp; provolone with 'local loks.'"</p><div class="who lab"><span>Google review</span><span>★★★★★</span></div></div>
+<div class="rc tilt"><p>"Bagels were perfection."</p><div class="who lab"><span>Google review</span><span>★★★★★</span></div></div>
+<div class="big">4.5★</div>
+</div></div></section>
+
+<section class="visit" id="visit"><img src="img/gm00.jpg" alt="" data-speed=".14">
+<div class="panel glass" data-reveal><h2 class="A">Come say <span class="H">hi.</span></h2>
+<div class="vg"><div><span class="lab">Find us</span><p>173 US-1, Tequesta Shoppes<br>Tequesta, FL 33469</p></div><div><span class="lab">Doors</span><p>Open at 6:30 AM</p></div><div><span class="lab">Call</span><p>(561) 575-1799</p></div><div><span class="lab">Feeding a crowd?</span><p>Bagel dozens, coffee boxes and platters</p></div></div>
+<a class="btn" href="#" data-cursor="GO">Get directions →</a></div></section>
+<footer><div class="A">BAGEL BISTRO</div><div class="f lab"><span>173 US-1 · Tequesta, Florida</span><span>© 2027</span></div></footer>
+<script src="../fx/fx.js"></script>
+<script>
+(()=>{document.querySelectorAll('.cnt').forEach(el=>{const to=parseFloat(el.dataset.to),dec=+(el.dataset.dec||0);new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const t0=performance.now();(function f(t){const p=Math.min(1,(t-t0)/1600),v=to*(1-Math.pow(1-p,3));el.textContent=v.toFixed(dec);if(p<1)requestAnimationFrame(f)})(t0)})},{threshold:.4}).observe(el)})})();
+</script></body></html>
