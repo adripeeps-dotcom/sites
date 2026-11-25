@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Raja Indian Cuisine &amp; Bar | Wellington</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--night:#0e1a3a;--deep:#0a1229;--saffron:#e4a634;--chili:#9e2a22;--ivory:#f8f1e3;--blue:#1d3f8f;--line:rgba(228,166,52,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--deep);color:var(--ivory);font-family:'Jost',sans-serif;overflow-x:clip;background-image:radial-gradient(circle at calc(var(--mx,.5)*100%) calc(var(--my,.3)*100%),rgba(29,63,143,.35),transparent 45%)}
+a{color:inherit;text-decoration:none}
+.M{font-family:'Marcellus',serif}.V{font-family:'Great Vibes',cursive}
+.lab{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--saffron)}
+.loader{background:var(--deep);flex-direction:column;gap:4px}.loader .M{font-size:16vw;color:var(--saffron)}.loader .V{font-size:42px}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 40px;max-width:1440px;margin:0 auto}
+header .logo{font-family:'Great Vibes';font-size:44px;color:var(--saffron);line-height:1}
+header .logo small{font-family:'Jost';font-size:11px;letter-spacing:.3em;color:var(--ivory);margin-left:12px;text-transform:uppercase}
+header .r{display:flex;gap:10px}
+.chip{border:1px solid var(--line);border-radius:40px;padding:11px 20px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:.25s}
+.chip:hover,.chip.gold{background:var(--saffron);color:var(--deep);border-color:var(--saffron)}
+
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:132px;gap:20px;padding:0 40px 40px;max-width:1440px;margin:0 auto}
+.t{position:relative;border-radius:28px;overflow:hidden;background:var(--night);border:1px solid var(--line);transition:transform .45s cubic-bezier(.2,.85,.2,1),box-shadow .45s}
+.t:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.t::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(320px circle at var(--lx,50%) var(--ly,50%),rgba(228,166,52,.16),transparent 60%);opacity:0;transition:opacity .3s}
+.t:hover::after{opacity:1}
+.t img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.85,.2,1)}
+.t:hover img.bg{transform:scale(1.07)}
+.t .cap{position:absolute;left:18px;bottom:16px;font-size:12px;letter-spacing:.12em;background:rgba(10,18,41,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 14px;border-radius:20px}
+.pad{padding:28px}
+
+.hero{grid-column:1/9;grid-row:1/5}
+.hero .kb img{filter:brightness(.62) saturate(1.1)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(10,18,41,.9),transparent 60%)}
+.hero .txt{position:absolute;left:34px;bottom:30px;right:34px;z-index:2}
+.hero h1{font-size:120px;line-height:.9;color:var(--saffron);font-weight:400}
+.hero h1.V{font-size:66px;color:var(--ivory);margin-top:-6px}
+.hero p{margin-top:12px;font-size:17px;max-width:540px;line-height:1.5;color:#e9e0cd}
+.status{grid-column:9/13;grid-row:1/2;display:flex;align-items:center;justify-content:space-between;padding:0 26px;background:var(--saffron);color:var(--deep);border:0}
+.status .now{display:flex;align-items:center;gap:12px;font-size:17px;font-weight:600}
+.dot{width:12px;height:12px;border-radius:50%;background:#1a7a3c;box-shadow:0 0 0 0 rgba(26,122,60,.6);animation:pulse 1.8s infinite}
+.dot.off{background:var(--chili);box-shadow:none;animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 12px rgba(26,122,60,0)}100%{box-shadow:0 0 0 0 rgba(26,122,60,0)}}
+.status .clock{font-size:12px;letter-spacing:.08em;opacity:.75;text-align:right}
+.rate{grid-column:9/13;grid-row:2/5;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(160deg,var(--blue),var(--night))}
+.rate .rose{position:absolute;right:-70px;top:-70px;width:300px;height:300px;opacity:.5;animation:spin 40s linear infinite}
+.rate .big{font-size:150px;line-height:.85;color:var(--saffron);font-weight:400;position:relative}
+.rate .stars{font-size:22px;letter-spacing:5px;color:var(--saffron);position:relative}
+.rate .lab{position:relative}
+.rate .badge{position:relative;display:inline-block;margin-top:10px;font-family:'Great Vibes';font-size:34px;color:var(--ivory)}
+
+.menu{grid-column:1/7;grid-row:5/8}
+.menu .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.menu .tab{padding:8px 16px;border-radius:30px;border:1px solid var(--line);font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:.25s}
+.menu .tab.on{background:var(--saffron);color:var(--deep);border-color:var(--saffron)}
+.menu .pane{display:none;animation:fadeup .5s ease}
+.menu .pane.on{display:grid;grid-template-columns:1fr 150px;gap:18px;align-items:start}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.menu h3{font-size:36px;font-weight:400;color:var(--saffron);line-height:1}
+.menu ul{list-style:none;margin-top:12px}.menu li{padding:7px 0;border-top:1px solid var(--line);font-size:15px}.menu li b{font-weight:500;color:var(--ivory)}.menu li span{color:#b8bfd6}
+.menu .pane img{width:150px;height:190px;object-fit:cover;border-radius:90px 90px 16px 16px}
+.menu .bar{height:3px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:16px;overflow:hidden}.menu .bar i{display:block;height:100%;width:0;background:var(--saffron)}
+
+.quotes{grid-column:7/13;grid-row:5/8;background:var(--chili);display:flex;flex-direction:column;justify-content:space-between;padding:34px}
+.quotes .lab{color:#ffd9a0}
+.quotes .q{display:none;font-family:'Marcellus';font-size:31px;line-height:1.2;animation:fadeup .6s ease}
+.quotes .q.on{display:block}
+.quotes .who{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#ffd9a0;margin-top:16px;display:block;font-family:'Jost'}
+.quotes .pips{display:flex;gap:6px}.quotes .pips i{width:22px;height:4px;border-radius:4px;background:rgba(255,255,255,.3)}.quotes .pips i.on{background:var(--saffron)}
+
+.buffet{grid-column:1/5;grid-row:8/11}
+.buffet::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(10,18,41,.92),transparent 65%)}
+.buffet .txt{position:absolute;left:24px;right:24px;bottom:22px;z-index:2}
+.buffet h3{font-size:34px;font-weight:400;color:var(--saffron)}
+.buffet p{font-size:14px;line-height:1.5;margin-top:6px}
+.buffet .live{display:inline-block;margin-bottom:8px;padding:5px 12px;border-radius:20px;background:var(--saffron);color:var(--deep);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.visit{grid-column:5/10;grid-row:8/11}
+.visit .panel{position:absolute;left:18px;right:18px;bottom:18px;border-radius:20px;padding:22px;background:rgba(10,18,41,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.visit .panel .lab{display:block;margin-bottom:4px;font-size:11px}
+.visit .panel p{font-size:15px;line-height:1.4}
+.order{grid-column:10/13;grid-row:8/11;background:var(--saffron);color:var(--deep);border:0}
+.order .txt{position:absolute;left:26px;top:26px;right:26px;z-index:2}
+.order h3{font-size:46px;font-weight:400;line-height:.95}
+.order .V{font-size:44px;display:block;margin-top:6px;color:var(--chili)}
+.order img.bg{top:48%;height:52%;border-radius:100px 100px 0 0;left:20%;width:60%}
+.foot{padding:20px 40px 110px;display:flex;justify-content:space-between;align-items:flex-end;max-width:1440px;margin:0 auto}
+.foot .V{font-size:12vw;line-height:.8;color:var(--saffron)}
+.m-only{display:none}
+
+@media (max-width:820px){
+ header{padding:14px 16px}header .r .chip:not(.gold){display:none}header .logo{font-size:36px}header .logo small{display:none}
+ .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px;padding:0 12px 16px}
+ .bento>.t{grid-column:1/-1!important;grid-row:auto!important;min-height:180px}
+ .hero{min-height:620px!important}.hero h1{font-size:23vw}.hero h1.V{font-size:12vw}.hero p{font-size:15px}.hero .txt{left:20px;right:20px;bottom:22px}
+ .status{padding:16px 18px;min-height:0!important}.status .clock{display:none}
+ .rate{min-height:280px!important}.rate .big{font-size:30vw}
+ .menu .pane.on{grid-template-columns:1fr}.menu .pane img{display:none}.menu h3{font-size:30px}
+ .quotes{min-height:300px!important}.quotes .q{font-size:23px}
+ .buffet{min-height:380px!important}.visit{min-height:440px!important}.visit .panel{grid-template-columns:1fr 1fr}
+ .order{min-height:360px!important}.order h3{font-size:38px}
+ .foot{flex-direction:column;align-items:flex-start;gap:10px;padding:20px 16px 100px}.foot .V{font-size:28vw}
+}
+</style></head>
+<body data-book="book.html" data-pvlabel="A preview made for Raja Indian Cuisine & Bar">
+<div class="loader"><div class="V split">Raja</div><div class="lab">Indian Cuisine &amp; Bar &middot; Wellington</div></div>
+
+<header><div class="logo">Raja<small>Indian Cuisine &amp; Bar</small></div><div class="r"><a class="chip" href="#">Menu</a><a class="chip" href="#">Buffet</a><a class="chip gold" href="tel:5613185383" data-cursor="RESERVE">Reserve a table</a></div></header>
+
+<main class="bento">
+<section class="t hero" data-cursor="DINE"><div class="kb"><img src="img/gm00.jpg" alt="Patio bar lit up at night"><img src="img/gm04.jpg" alt="Dining room"><img src="img/gm05.jpg" alt="Curry and dal"></div>
+<div class="txt"><span class="lab">Wellington, Florida</span><h1 class="M split">Raja</h1><h1 class="V">Indian cuisine &amp; bar</h1><p>Traditional Indian with a modern kick. Biryanis, tikka masala and the mango Chicken Aamwala, a lunch buffet, a full bar inside and a patio bar under the lights.</p></div></section>
+
+<section class="t status"><div class="now"><span class="dot" id="dot"></span><span id="st">checking...</span></div><span class="clock" id="clk"></span></section>
+
+<section class="t rate pad"><svg class="rose" viewBox="0 0 200 200" fill="none" stroke="#e4a634" stroke-width="1.2"><g id="p"><ellipse cx="100" cy="50" rx="18" ry="48"/></g><use href="#p" transform="rotate(30 100 100)"/><use href="#p" transform="rotate(60 100 100)"/><use href="#p" transform="rotate(90 100 100)"/><use href="#p" transform="rotate(120 100 100)"/><use href="#p" transform="rotate(150 100 100)"/><circle cx="100" cy="100" r="10"/></svg>
+<span class="lab">Guests say</span><div><div class="big M"><span class="cnt" data-to="4.7" data-dec="1">4.7</span></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div><div><span class="lab">451 reviews</span><span class="badge">a hidden gem in Wellington</span></div></section>
+
+<section class="t menu pad" id="menu"><span class="lab">The menu &middot; hover a tab</span>
+<div class="tabs"><span class="tab on">To begin</span><span class="tab">Curries</span><span class="tab">Biryani</span><span class="tab">Sweet endings</span></div>
+<div class="pane on"><div><h3 class="M">To begin</h3><ul><li><b>Onion Spinach Pakora</b> <span>crispy fritters with chutney</span></li><li><b>Paneer Tikka</b> <span>smoky and flavorful</span></li><li><b>Mulligatawny Soup</b></li><li><b>Avocado &amp; Chicken Tikka Salad</b></li></ul></div><img src="img/gm03.jpg" alt=""></div>
+<div class="pane"><div><h3 class="M">Curries</h3><ul><li><b>Chicken Tikka Masala</b> <span>tomato cream sauce</span></li><li><b>Chicken Aamwala</b> <span>spiced mango, a guest favorite</span></li><li><b>Chicken Vindaloo</b> <span>red chili and vinegar</span></li><li><b>Korma</b> <span>chicken or vegetable</span></li></ul></div><img src="img/gm05.jpg" alt=""></div>
+<div class="pane"><div><h3 class="M">Biryani</h3><ul><li><b>Lamb Biryani</b></li><li><b>Chicken Biryani</b></li><li><b>Goat Biryani</b></li><li><b>Mango Lassi</b> <span>to cool the heat</span></li></ul></div><img src="img/gm01.jpg" alt=""></div>
+<div class="pane"><div><h3 class="M">Sweet endings</h3><ul><li><b>Madagascar Cr&egrave;me Br&ucirc;l&eacute;e</b></li><li><b>Saffron Chai Cheesecake</b></li><li><b>Gulab Jamun</b></li><li><b>Rasmalai &amp; Rice Kheer</b></li></ul></div><img src="img/gm06.jpg" alt=""></div>
+<div class="bar"><i id="bar"></i></div></section>
+
+<section class="t quotes" id="reviews"><span class="lab">in our guests' words</span>
+<div><p class="q on">"Raja has that homemade taste that's hard to describe until you try it."<span class="who">The Vegan G &middot; Google review</span></p>
+<p class="q">"The Coconut curry my son ordered was exceptional... probably the best meal we shared in 4 years!"<span class="who">Bob M. &middot; Google review</span></p>
+<p class="q">"Cozy, with a full bar in the center, and a cute outside patio with a bar."<span class="who">Tanya M. &middot; Google review</span></p></div>
+<div class="pips"><i class="on"></i><i></i><i></i></div></section>
+
+<section class="t buffet" data-cursor="FEAST"><img class="bg" src="img/gm09.jpg" alt="The lunch buffet"><div class="txt"><span class="live" id="bl">Lunch buffet</span><h3 class="M">The Raja lunch buffet</h3><p>Curries, dal, biryani, salads and chutneys, with fresh naan included.<br>Tue to Fri 11:30 AM to 2:30 PM &middot; Sat &amp; Sun 12 to 3 PM</p></div></section>
+
+<section class="t visit" id="visit"><img class="bg" src="img/gm00.jpg" alt="">
+<div class="panel"><div><span class="lab">Find us</span><p>12794 Forest Hill Blvd, Ste 20<br>Wellington, FL 33414</p></div><div><span class="lab">Call</span><p>(561) 318-5383</p></div><div><span class="lab">Tue to Fri</span><p>11:30 AM to 2:30 PM<br>5 to 10 PM</p></div><div><span class="lab">Sat &middot; Sun &middot; Mon</span><p>Sat 12 to 3, 5 to 10<br>Sun 12 to 3, 5 to 9<br>Mon closed</p></div></div></section>
+
+<section class="t order"><div class="txt"><span class="lab" style="color:var(--chili)">Original Wellington Mall</span><h3 class="M">Reserve a table</h3><span class="V">tonight?</span></div><img class="bg" src="img/gm06.jpg" alt=""></section>
+</main>
+<div class="foot"><div class="V">Raja</div><span class="lab">Wellington &middot; Florida</span></div>
+
+<script src="../fx/fx.js"></script>
+<script>
+(()=>{
+document.querySelectorAll('.t').forEach(t=>t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect();t.style.setProperty('--lx',(e.clientX-r.left)+'px');t.style.setProperty('--ly',(e.clientY-r.top)+'px')}));
+// [open, close] windows per weekday (0 = Sunday), 24h decimals. Monday closed.
+const L=[[12,15],[5*0+17,21]],H={0:[[12,15],[17,21]],1:[],2:[[11.5,14.5],[17,22]],3:[[11.5,14.5],[17,22]],4:[[11.5,14.5],[17,22]],5:[[11.5,14.5],[17,22]],6:[[12,15],[17,22]]};
+const DN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const fmt=x=>{const hh=Math.floor(x),mm=Math.round((x-hh)*60);return (hh%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(hh<12?' AM':' PM')};
+function tick(){const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'}));const d=now.getDay(),h=now.getHours()+now.getMinutes()/60;
+ const w=H[d].find(([o,c])=>h>=o&&h<c);let txt;
+ if(w)txt='Open now, until '+fmt(w[1]);
+ else{let nx=H[d].find(([o])=>o>h),dd=d,k=0;while(!nx&&k<7){dd=(dd+1)%7;k++;nx=H[dd][0]}txt='Closed, opens '+(k?(k==1?'tomorrow ':DN[dd]+' ')+fmt(nx[0]):fmt(nx[0]))}
+ document.getElementById('dot').className='dot'+(w?'':' off');document.getElementById('st').textContent=txt;
+ document.getElementById('clk').textContent='Wellington '+now.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+ const lunch=H[d].length&&h>=H[d][0][0]&&h<H[d][0][1];document.getElementById('bl').textContent=lunch?'Buffet is on now':'Lunch buffet'}
+tick();setInterval(tick,30000);
+const tabs=[...document.querySelectorAll('.tab')],panes=[...document.querySelectorAll('.pane')],bar=document.getElementById('bar');let cur=0,t0=performance.now(),hold=false;
+function show(i){cur=i;tabs.forEach((t,j)=>t.classList.toggle('on',j==i));panes.forEach((p,j)=>p.classList.toggle('on',j==i));t0=performance.now()}
+tabs.forEach((t,i)=>t.addEventListener('mouseenter',()=>{show(i);hold=true}));document.querySelector('.menu').addEventListener('mouseleave',()=>hold=false);
+(function loop(n){const p=Math.min(1,(n-t0)/3800);bar.style.width=(hold?100:p*100)+'%';if(!hold&&p>=1)show((cur+1)%tabs.length);requestAnimationFrame(loop)})(t0);
+const qs=[...document.querySelectorAll('.q')],pips=[...document.querySelectorAll('.pips i')];let qi=0;setInterval(()=>{qs[qi].classList.remove('on');pips[qi].classList.remove('on');qi=(qi+1)%qs.length;qs[qi].classList.add('on');pips[qi].classList.add('on')},4600);
+document.querySelectorAll('.cnt').forEach(el=>{const to=+el.dataset.to,dec=+(el.dataset.dec||0);new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1500);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec);if(p<1)requestAnimationFrame(f)})(s)})},{threshold:.3}).observe(el)});
+})();
+</script>
+</body></html>
