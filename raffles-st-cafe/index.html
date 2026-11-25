@@ -1,162 +1,139 @@
 <!doctype html>
 <html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Raffles St Café | Napier South</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Jost:wght@400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../fx/fx.css">
 <style>
-/* One-off concept: a story told in chapters. Left half is a pinned photo that changes with each chapter. */
-:root{--cream:#f6f1e8;--slate:#5c6f7b;--char:#22262a;--brass:#b08d57;--paper:#fffdf8}
+/* stack layout, villa edition: full-screen "rooms" of the villa that slide over each other like turning pages */
+:root{--cream:#f6f1e8;--slate:#55697a;--char:#1f2327;--brass:#b8935a;--paper:#fffdf8}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--cream);color:var(--char);font-family:'Jost',sans-serif;overflow-x:clip}
-.G{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:.95}
-.lab{font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:600}
-.loader{background:var(--char);color:var(--cream);flex-direction:column}
-.loader .G{font-size:96px;font-style:italic}
-.loader .lab{color:var(--brass);margin-top:10px}
+body{background:var(--char);color:var(--char);font-family:'Jost',sans-serif;overflow-x:clip}
+.G{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:.92}
+.lab{font-size:11px;letter-spacing:.34em;text-transform:uppercase;font-weight:600}
+.loader{background:var(--cream);flex-direction:column}
+.loader .G{font-size:100px;font-style:italic}
+.loader .lab{color:var(--brass);margin-top:12px}
 
-.split-wrap{display:grid;grid-template-columns:1fr 1fr}
-.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--char)}
-.stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s ease,transform 6s ease}
-.stage img.on{opacity:1;transform:scale(1)}
-.stage::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(34,38,42,.55),transparent 40%)}
-.stage .ch{position:absolute;left:36px;bottom:34px;z-index:2;color:var(--cream)}
-.stage .ch .num{font-family:'Cormorant Garamond';font-size:120px;font-style:italic;line-height:.8}
-.stage .ch .lab{display:block;margin-top:8px;color:#fff;opacity:.85}
-.stage .logo{position:absolute;left:36px;top:30px;z-index:2;color:var(--cream);font-family:'Cormorant Garamond';font-size:28px;font-style:italic}
-.prog{position:absolute;right:28px;top:50%;transform:translateY(-50%);z-index:2;display:flex;flex-direction:column;gap:12px}
-.prog i{width:3px;height:34px;border-radius:3px;background:rgba(255,255,255,.3);transition:.4s}
-.prog i.on{background:var(--brass);height:60px}
+.top{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center}
+.top .name{font-family:'Cormorant Garamond';font-style:italic;font-size:26px;padding:8px 20px;border-radius:40px;background:rgba(246,241,232,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.top a{padding:13px 22px;border-radius:40px;background:var(--char);color:var(--cream);font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.rooms{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:800;display:flex;flex-direction:column;gap:14px}
+.rooms span{display:flex;align-items:center;gap:10px;justify-content:flex-end;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#fff;opacity:.45;transition:.4s;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.rooms span i{width:8px;height:8px;border-radius:50%;border:1.5px solid #fff}
+.rooms span.on{opacity:1}.rooms span.on i{background:var(--brass);border-color:var(--brass)}
 
-.story{background:var(--cream)}
-.chap{min-height:100vh;padding:120px 70px 90px;display:flex;flex-direction:column;justify-content:center;border-bottom:1px solid #0001}
-.chap .lab{color:var(--slate)}
-.chap h2{font-size:96px;margin:18px 0 26px;letter-spacing:-.01em}
-.chap h2 em{color:var(--brass)}
-.chap p{font-size:19px;line-height:1.7;max-width:520px;color:#3d4247}
-.chap .m-img{display:none}
-.top{position:fixed;top:22px;right:28px;z-index:800;display:flex;gap:10px}
-.btn{display:inline-flex;gap:10px;align-items:center;padding:13px 22px;border-radius:40px;background:var(--char);color:var(--cream);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:.3s}
-.btn:hover{background:var(--brass)}
-.btn.ghost{background:rgba(246,241,232,.6);color:var(--char);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.panel{position:sticky;top:0;height:100vh;min-height:720px;overflow:hidden;transform-origin:50% 0;will-change:transform,filter}
 
-.intro h1{font-size:150px;line-height:.85;letter-spacing:-.02em}
-.intro h1 em{display:block;color:var(--slate)}
-.rating{display:flex;gap:18px;align-items:center;margin-top:36px}
-.rating .G{font-size:64px;color:var(--brass)}
+/* 1 front door */
+.p1 img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:slowzoom 18s ease-in-out infinite alternate}
+@keyframes slowzoom{from{transform:scale(1)}to{transform:scale(1.1)}}
+.p1::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(31,35,39,.72),rgba(31,35,39,.15) 60%)}
+.p1 .t{position:absolute;left:60px;bottom:80px;z-index:2;color:var(--cream);max-width:760px}
+.p1 h1{font-size:170px;letter-spacing:-.01em}
+.p1 h1 em{display:block;color:var(--brass)}
+.p1 p{font-size:19px;line-height:1.65;margin-top:22px;max-width:520px;opacity:.92}
+.p1 .rate{display:inline-flex;gap:16px;align-items:baseline;margin-top:28px;padding:14px 22px;border-radius:40px;background:rgba(246,241,232,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2)}
+.p1 .rate .G{font-size:40px;color:var(--brass)}
+.chand{position:absolute;right:120px;top:0;z-index:2;width:2px;height:160px;background:var(--brass);transform-origin:top;animation:swing 4s ease-in-out infinite}
+.chand::after{content:"";position:absolute;left:50%;bottom:-34px;transform:translateX(-50%);width:60px;height:40px;border-radius:0 0 40px 40px;border:2px solid var(--brass);border-top:0;box-shadow:0 18px 50px rgba(255,214,140,.55)}
+@keyframes swing{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
 
-.dishes{margin-top:10px;display:grid;gap:0;max-width:560px}
-.dish{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 0;border-top:1px solid #0002;align-items:baseline;transition:padding .4s}
-.dish:hover{padding-left:12px}
-.dish .n{font-family:'Cormorant Garamond';font-style:italic;font-size:30px;color:var(--brass)}
-.dish h3{font-family:'Cormorant Garamond';font-size:38px;font-weight:600}
-.dish span{display:block;font-size:15px;color:#5a6066;margin-top:4px}
+/* 2 parlour (brunch) */
+.p2{background:var(--cream);display:grid;grid-template-columns:1fr 1fr}
+.p2 .ph{position:relative;overflow:hidden}
+.p2 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s,transform 1.2s}
+.p2 .ph img+img{opacity:0}
+.p2 .t{padding:120px 64px 60px;display:flex;flex-direction:column;justify-content:center}
+.p2 h2{font-size:100px}.p2 h2 em{color:var(--brass)}
+.p2 .dish{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0;border-top:1px solid #0002;transition:padding .4s}
+.p2 .dish:hover{padding-left:14px}
+.p2 .dish h3{font-family:'Cormorant Garamond';font-size:36px;font-weight:600}
+.p2 .dish span{font-family:'Cormorant Garamond';font-style:italic;font-size:20px;color:var(--slate)}
 
-/* receipt that prints in */
-.slot{width:420px;height:16px;background:var(--char);border-radius:10px;margin-top:20px;position:relative;z-index:2}
-.receipt-wrap{width:380px;margin-left:20px;overflow:hidden;margin-top:-6px}
-.receipt{background:var(--paper);padding:28px 26px 34px;font-family:'Courier Prime',monospace;font-size:15px;color:#333;box-shadow:0 20px 40px rgba(0,0,0,.12);transform:translateY(-100%);transition:transform 2.2s steps(14,end);position:relative}
-.receipt::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:12px;background:radial-gradient(circle at 8px -2px,transparent 8px,var(--paper) 9px) 0 0/16px 12px}
-.in .receipt{transform:none}
-.receipt .c{text-align:center}
-.receipt hr{border:0;border-top:1px dashed #999;margin:12px 0}
-.receipt .r{display:flex;justify-content:space-between;padding:4px 0}
+/* 3 the cabinet */
+.p3{background:var(--char);color:var(--cream);display:flex;flex-direction:column;justify-content:center;padding:0 60px}
+.p3 .head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px}
+.p3 h2{font-size:110px}.p3 h2 em{color:var(--brass)}
+.p3 .head p{max-width:360px;font-size:17px;line-height:1.6;opacity:.85}
+.cab{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:18px;height:52vh}
+.cab figure{position:relative;overflow:hidden;border-radius:4px}
+.cab img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.cab figure:hover img{transform:scale(1.08)}
+.cab figcaption{position:absolute;left:14px;bottom:12px;font-family:'Cormorant Garamond';font-style:italic;font-size:24px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6)}
 
-.chap .big-quote{font-family:'Cormorant Garamond';font-style:italic;font-size:58px;line-height:1.05;max-width:560px}
-.big-quote b{font-style:normal;color:var(--brass);font-weight:600}
-.notes{display:grid;gap:18px;max-width:560px;margin-top:10px}
-.note{padding:26px 28px;background:var(--paper);border-left:3px solid var(--brass);font-family:'Cormorant Garamond';font-size:28px;line-height:1.2;font-style:italic;transition:transform .4s}
-.note:hover{transform:translateX(10px)}
-.note small{display:block;font-family:'Jost';font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--slate);margin-top:12px}
+/* 4 by the fireplace (reviews) */
+.p4 img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.p4 .wrap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 60px;z-index:2;color:var(--cream)}
+.p4 .q{font-family:'Cormorant Garamond';font-style:italic;font-size:76px;line-height:1.02;max-width:1050px;min-height:240px}
+.p4 .q b{font-style:normal;color:var(--brass);font-weight:600}
+.p4 .who{margin-top:24px;color:var(--brass)}
+.p4 .dots{display:flex;gap:10px;margin-top:36px}.p4 .dots i{width:34px;height:3px;background:rgba(255,255,255,.3)}.p4 .dots i.on{background:var(--brass)}
+.p4 .q span{display:none;animation:fade .8s ease}.p4 .q span.on{display:inline}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 
-.hours{display:grid;grid-template-columns:1fr 1fr;gap:26px 30px;max-width:560px;margin:10px 0 36px}
-.hours .lab{display:block;margin-bottom:8px;color:var(--brass)}
-.hours p{font-family:'Cormorant Garamond';font-size:30px;line-height:1.15}
-footer{padding:40px 70px;background:var(--char);color:var(--cream);display:flex;justify-content:space-between;align-items:center}
-footer .G{font-size:44px;font-style:italic}
+/* 5 come on in */
+.p5{background:var(--cream);display:grid;grid-template-columns:1fr 1fr}
+.p5 .t{padding:120px 64px;display:flex;flex-direction:column;justify-content:center}
+.p5 h2{font-size:120px}.p5 h2 em{color:var(--slate)}
+.p5 .g{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:36px 0}
+.p5 .g .lab{display:block;margin-bottom:8px;color:var(--brass)}
+.p5 .g p{font-family:'Cormorant Garamond';font-size:30px;line-height:1.15}
+.p5 .btn{align-self:flex-start;padding:18px 30px;border-radius:40px;background:var(--char);color:var(--cream);font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;text-decoration:none}
+.p5 .ph{position:relative;overflow:hidden}.p5 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+footer{position:relative;z-index:5;background:var(--char);color:var(--cream);padding:40px 60px;display:flex;justify-content:space-between;align-items:center}
+footer .G{font-size:46px;font-style:italic}
 @media (max-width:820px){
- .split-wrap{grid-template-columns:1fr}
- .stage{display:none}
- .chap{min-height:0;padding:70px 20px 60px}
- .chap .m-img{display:block;width:100%;height:68vw;object-fit:cover;border-radius:4px;margin-bottom:26px}
- .chap h2{font-size:15vw}.intro h1{font-size:19vw}
- .chap p{font-size:16px}
- .top{top:12px;right:12px}.top .ghost{display:none}
- .slot{width:100%}.receipt-wrap{width:92%;margin-left:4%}
- .chap .big-quote{font-size:34px}.note{font-size:22px}
- .hours p{font-size:22px}
+ .panel{position:relative;height:auto;min-height:0}
+ .top{left:12px;right:12px;top:12px}.top .name{font-size:20px}.rooms{display:none}.chand{right:40px;height:90px}
+ .p1{min-height:100svh}.p1 .t{left:20px;right:20px;bottom:40px}.p1 h1{font-size:20vw}.p1 p{font-size:16px}
+ .p2{grid-template-columns:1fr}.p2 .ph{height:80vw}.p2 .t{padding:50px 20px}.p2 h2{font-size:15vw}.p2 .dish h3{font-size:26px}.p2 .dish span{font-size:16px}
+ .p3{padding:60px 20px}.p3 .head{flex-direction:column;align-items:flex-start;gap:14px}.p3 h2{font-size:16vw}.cab{grid-template-columns:1fr;height:auto}.cab figure{height:70vw}
+ .p4{min-height:110vw}.p4 .wrap{padding:0 20px}.p4 .q{font-size:34px;min-height:200px}
+ .p5{grid-template-columns:1fr}.p5 .t{padding:50px 20px}.p5 h2{font-size:17vw}.p5 .g p{font-size:22px}.p5 .ph{height:80vw}
  footer{flex-direction:column;gap:10px;padding:30px 20px}
 }
 </style></head>
 <body data-book="book.html" data-pvlabel="A preview made for Raffles St Café">
-<div class="loader"><div class="G split">Raffles St Café</div><div class="lab">Napier South · est. in a villa</div></div>
-<div class="top"><a class="btn ghost" href="#">The menu</a><a class="btn" href="#" data-cursor="CALL">Call · 020 4133 0660</a></div>
+<div class="loader"><div class="G split">Raffles St Café</div><div class="lab">Napier South</div></div>
+<div class="top"><span class="name">Raffles St Café</span><a href="#" data-cursor="CALL">Call · 020 4133 0660</a></div>
+<nav class="rooms" id="rooms"><span class="on"><b>Front door</b><i></i></span><span><b>Parlour</b><i></i></span><span><b>Cabinet</b><i></i></span><span><b>Fireplace</b><i></i></span><span><b>Come in</b><i></i></span></nav>
 
-<div class="split-wrap">
-<aside class="stage">
-<div class="logo">Raffles St Café</div>
-<img src="img/gm08.jpg" alt="" class="on"><img src="img/gm07.jpg" alt=""><img src="img/gm03.jpg" alt=""><img src="img/gm09.jpg" alt=""><img src="img/gm04.jpg" alt=""><img src="img/gm00.jpg" alt=""><img src="img/gm02.jpg" alt="">
-<div class="ch"><div class="num" id="num">i.</div><span class="lab" id="chname">Welcome</span></div>
-<div class="prog" id="prog"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-</aside>
-
-<main class="story">
-<section class="chap intro" data-i="0" data-name="Welcome"><img class="m-img" src="img/gm08.jpg" alt="">
-<span class="lab">72 Raffles Street · Napier South</span>
+<section class="panel p1"><img class="bg" src="img/gm08.jpg" alt=""><div class="chand"></div>
+<div class="t"><span class="lab" style="color:var(--brass)">72 Raffles Street · Napier South</span>
 <h1 class="G"><span class="split">Raffles St</span><em class="split">Café</em></h1>
-<p style="margin-top:28px">Fresh food and great coffee in a gorgeous old villa. Lattes, eggs bene and a cabinet full of bakes, served under the chandeliers.</p>
-<div class="rating"><span class="G">4.4★</span><span class="lab">395 Google reviews</span></div></section>
+<p>Fresh food and great coffee in a gorgeous old villa. Lattes, eggs bene and a cabinet full of bakes, served under the chandeliers.</p>
+<div class="rate"><span class="G">4.4★</span><span class="lab">395 Google reviews</span></div></div></section>
 
-<section class="chap" data-i="1" data-name="The villa"><img class="m-img" src="img/gm07.jpg" alt="">
-<span class="lab">Chapter ii</span><h2 class="G">A villa with <em>a fireplace</em></h2>
-<p data-reveal>Timber floors, chandeliers and a fireplace in the corner. "What a gorgeous little cafe!" is how one guest put it. Lots of tables, plenty of space, and outdoor seating when the sun is out.</p></section>
+<section class="panel p2"><div class="ph" id="ph2"><img src="img/gm03.jpg" alt=""><img src="img/gm01.jpg" alt=""><img src="img/gm06.jpg" alt=""><img src="img/gm05.jpg" alt=""></div>
+<div class="t"><span class="lab" style="color:var(--slate)">The parlour · hover a dish</span><h2 class="G">Brunch, <em>done properly</em></h2>
+<div style="margin-top:26px">
+<div class="dish" data-p="0"><h3>Eggs Benedict</h3><span>the one people keep ordering</span></div>
+<div class="dish" data-p="1"><h3>Chilli Scramble &amp; Chorizo</h3><span>"a really nice exciting twist"</span></div>
+<div class="dish" data-p="2"><h3>Creamy Mushrooms</h3><span>a regular favourite</span></div>
+<div class="dish" data-p="3"><h3>Avocado on Toast</h3><span>loads of GF options too</span></div>
+</div></div></section>
 
-<section class="chap" data-i="2" data-name="Brunch"><img class="m-img" src="img/gm03.jpg" alt="">
-<span class="lab">Chapter iii</span><h2 class="G">Brunch, <em>done properly</em></h2>
-<div class="dishes">
-<div class="dish"><span class="n">01</span><div><h3>Eggs Benedict</h3><span>the one people keep ordering</span></div></div>
-<div class="dish"><span class="n">02</span><div><h3>Chilli Scramble with Chorizo</h3><span>"a really nice exciting twist on scrambled eggs"</span></div></div>
-<div class="dish"><span class="n">03</span><div><h3>Creamy Mushrooms</h3><span>a regular favourite</span></div></div>
-<div class="dish"><span class="n">04</span><div><h3>Loads of GF options</h3><span>plus milk alternatives</span></div></div>
-</div></section>
+<section class="panel p3"><div class="head"><h2 class="G">From <em>the cabinet</em></h2><p>Muffins, croissants, rolls and sweet treats. The spinach &amp; feta muffin is the guest favourite.</p></div>
+<div class="cab"><figure><img src="img/gm09.jpg" alt=""><figcaption>the whole cabinet</figcaption></figure><figure><img src="img/gm04.jpg" alt=""><figcaption>with a latte</figcaption></figure><figure><img src="img/gm02.jpg" alt=""><figcaption>under the chandelier</figcaption></figure></div></section>
 
-<section class="chap" data-i="3" data-name="The cabinet"><img class="m-img" src="img/gm09.jpg" alt="">
-<span class="lab">Chapter iv</span><h2 class="G">From <em>the cabinet</em></h2>
-<p>Muffins, croissants, rolls and sweet treats. Grab one with your coffee or take a few home.</p>
-<div class="slot"></div><div class="receipt-wrap" data-reveal><div class="receipt">
-<div class="c">RAFFLES ST CAFÉ<br>72 Raffles St · Napier</div><hr>
-<div class="r"><span>Spinach &amp; Feta Muffin</span><span>★ fav</span></div>
-<div class="r"><span>Basil Muffin</span><span>✓</span></div>
-<div class="r"><span>Ham &amp; Cheese Croissant</span><span>✓</span></div>
-<div class="r"><span>Rolls &amp; sweet treats</span><span>✓</span></div>
-<hr><div class="r"><span>+ 1 latte</span><span>always</span></div><hr>
-<div class="c">thank you, come again</div></div></div></section>
+<section class="panel p4"><img class="bg" src="img/gm07.jpg" alt="">
+<div class="wrap"><span class="lab" style="color:var(--brass)">By the fireplace · kind words</span>
+<p class="q" id="q"><span class="on">"One of the <b>best lattes</b> I've ever had! Smooth, rich, and perfectly made."</span><span>"What a <b>gorgeous</b> little cafe!"</span><span>"Lots of tables and space to dine. The <b>iced chocolate</b> was so delicious!!"</span><span>"Loads of <b>gluten free</b> options and milk alternatives, really relaxed."</span></p>
+<span class="lab who" id="who">Aarti I. · Google</span><div class="dots" id="dots"><i class="on"></i><i></i><i></i><i></i></div></div></section>
 
-<section class="chap" data-i="4" data-name="Coffee"><img class="m-img" src="img/gm04.jpg" alt="">
-<span class="lab">Chapter v</span>
-<p class="big-quote" data-reveal>"One of the <b>best lattes</b> I've ever had! Smooth, rich, and perfectly made."</p>
-<p style="margin-top:22px" class="lab">Aarti I. · Google</p></section>
-
-<section class="chap" data-i="5" data-name="Kind words"><img class="m-img" src="img/gm00.jpg" alt="">
-<span class="lab">Chapter vi</span><h2 class="G">Kind <em>words</em></h2>
-<div class="notes">
-<div class="note" data-reveal>"What a gorgeous little cafe!"<small>Google review</small></div>
-<div class="note" data-reveal>"Lots of tables and space to dine. The iced chocolate was so delicious!!"<small>Courtney W. · Google</small></div>
-<div class="note" data-reveal>"Loads of gluten free options and milk alternatives, really relaxed."<small>Libby C. · Google</small></div>
-</div></section>
-
-<section class="chap" data-i="6" data-name="Visit"><img class="m-img" src="img/gm02.jpg" alt="">
-<span class="lab">Chapter vii</span><h2 class="G">Come <em>on in</em></h2>
-<div class="hours"><div><span class="lab">Address</span><p>72 Raffles Street<br>Napier South 4110</p></div><div><span class="lab">Phone</span><p>020 4133 0660</p></div>
-<div><span class="lab">Mon – Fri</span><p>7:30 am – 2:30 pm</p></div><div><span class="lab">Saturday</span><p>8:30 am – 2 pm<br><small style="font-size:18px;opacity:.7">Sunday closed</small></p></div></div>
-<a class="btn" href="#" data-cursor="GO">Get directions →</a></section>
-</main></div>
+<section class="panel p5"><div class="t"><span class="lab" style="color:var(--brass)">Come on in</span><h2 class="G">See you <em>soon</em></h2>
+<div class="g"><div><span class="lab">Address</span><p>72 Raffles Street<br>Napier South 4110</p></div><div><span class="lab">Phone</span><p>020 4133 0660</p></div><div><span class="lab">Mon – Fri</span><p>7:30 am – 2:30 pm</p></div><div><span class="lab">Saturday</span><p>8:30 am – 2 pm<br><small style="font-size:18px;opacity:.7">Sunday closed</small></p></div></div>
+<a class="btn" href="#" data-cursor="GO">Get directions →</a></div><div class="ph"><img src="img/gm00.jpg" alt=""></div></section>
 <footer><span class="G">Raffles St Café</span><span class="lab">Napier, Hawke's Bay · © 2027</span></footer>
 
 <script src="../fx/fx.js"></script>
 <script>
-(()=>{const imgs=[...document.querySelectorAll('.stage img')],bars=[...document.querySelectorAll('#prog i')],num=document.getElementById('num'),nm=document.getElementById('chname');
-const R=['i.','ii.','iii.','iv.','v.','vi.','vii.'];
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;imgs.forEach((im,j)=>im.classList.toggle('on',j==i));bars.forEach((b,j)=>b.classList.toggle('on',j==i));num.textContent=R[i];nm.textContent=e.target.dataset.name}),{rootMargin:'-45% 0px -45% 0px'});
-document.querySelectorAll('.chap').forEach(c=>io.observe(c));})();
+(()=>{const mob=()=>matchMedia('(max-width:820px)').matches,P=[...document.querySelectorAll('.panel')],R=[...document.querySelectorAll('#rooms span')];
+function stack(){let cur=0;P.forEach((p,i)=>{const r=p.getBoundingClientRect();if(r.top<innerHeight*.5)cur=i;const n=P[i+1];if(mob()||!n){p.style.transform='';p.style.filter='';return}
+ const k=Math.min(1,Math.max(0,1-n.getBoundingClientRect().top/innerHeight));p.style.transform=`scale(${1-k*.07})`;p.style.filter=`brightness(${1-k*.5})`});R.forEach((s,j)=>s.classList.toggle('on',j==cur))}
+addEventListener('scroll',stack,{passive:true});addEventListener('resize',stack);stack();
+const im=[...document.querySelectorAll('#ph2 img')];document.querySelectorAll('.p2 .dish').forEach(d=>d.addEventListener('mouseenter',()=>im.forEach((x,j)=>{x.style.opacity=j==+d.dataset.p?1:0})));
+const qs=[...document.querySelectorAll('#q span')],ds=[...document.querySelectorAll('#dots i')],W=['Aarti I. · Google','Google review','Courtney W. · Google','Libby C. · Google'],who=document.getElementById('who');let i=0;
+setInterval(()=>{qs[i].classList.remove('on');ds[i].classList.remove('on');i=(i+1)%qs.length;qs[i].classList.add('on');ds[i].classList.add('on');who.textContent=W[i]},4500);})();
 </script>
 </body></html>
