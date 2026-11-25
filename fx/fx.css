@@ -72,3 +72,8 @@ img { max-width: 100%; }
   nav .links { display: none !important; }
   .loader .split, .loader > div:first-child { font-size: 16vw !important; }
 }
+
+/* food-texture titles: letters filled with a real food photo (see fx.js) */
+.ft{background-size:var(--foodsize,900px) auto;background-position:calc(var(--mx,.5)*100%) calc(var(--my,.5)*100%);-webkit-background-clip:text;background-clip:text;color:transparent!important;-webkit-text-fill-color:transparent;filter:saturate(1.35) contrast(1.1)}
+@media (hover:none){.ft{animation:ftdrift 14s ease-in-out infinite alternate}}
+@keyframes ftdrift{from{background-position:15% 25%}to{background-position:85% 75%}}

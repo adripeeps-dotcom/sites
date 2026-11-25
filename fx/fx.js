@@ -20,6 +20,13 @@
     });
   });
 
+  // food-texture titles (Adrianna 11-25 loved Mi Paella's): <h1 class="split foodtext" data-food="img/gm06.jpg">
+  // letters are filled with a real food photo that shifts with the mouse (drifts on its own on phones)
+  $('.foodtext').forEach(el => {
+    const u = new URL(el.dataset.food || '', location.href).href;
+    const t = $('.ch', el); (t.length ? t : [el]).forEach(n => { n.style.backgroundImage = `url("${u}")`; n.classList.add('ft'); });
+  });
+
   // scroll reveals
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
