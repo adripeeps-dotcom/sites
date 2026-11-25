@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coast Seafood | Lake Worth Beach</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--navy:#14306b;--ink:#0d1f45;--butter:#f3dc8b;--cream:#fbf7ec;--wood:#c79a5f;--live:#2fd27a;--line:#0d1f4522}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:'Manrope',sans-serif;overflow-x:clip}
+.F{font-family:'Fraunces',serif}
+.lab{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
+.loader{background:var(--navy);color:var(--butter);flex-direction:column}
+.loader .F{font-size:120px;font-weight:700}.loader .lab{margin-top:8px;color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;max-width:1440px;margin:0 auto}
+header .logo{font-family:'Fraunces';font-weight:700;font-size:34px;letter-spacing:.06em;color:var(--navy);line-height:1}
+header .logo small{display:block;font:800 10px 'Manrope';letter-spacing:.22em;color:var(--wood);margin-top:4px}
+header .r{display:flex;gap:10px}
+.chip{border:1.5px solid var(--navy);border-radius:40px;padding:11px 18px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;transition:.25s}
+.chip:hover{background:var(--navy);color:#fff}.chip.dark{background:var(--navy);color:var(--butter)}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:132px;gap:20px;padding:0 40px 40px;max-width:1440px;margin:0 auto}
+.t{position:relative;border-radius:28px;overflow:hidden;background:#fff;transition:transform .45s cubic-bezier(.2,.85,.2,1),box-shadow .45s}
+.t:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(13,31,69,.18)}
+.t img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.85,.2,1)}
+.t:hover img.bg{transform:scale(1.06)}
+.pad{padding:28px}
+.cap{position:absolute;left:18px;bottom:16px;color:#fff;font-size:13px;font-weight:600;background:rgba(13,31,69,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 14px;border-radius:20px}
+.hero{grid-column:1/9;grid-row:1/5}
+.hero .kb img{filter:brightness(.62)}
+.hero .txt{position:absolute;left:34px;right:34px;bottom:34px;color:#fff;z-index:2}
+.hero h1{font-family:'Fraunces';font-weight:400;font-size:88px;line-height:.95}
+.hero h1 em{color:var(--butter)}
+.hero p{margin-top:16px;font-size:18px;line-height:1.5;max-width:560px}
+.status{grid-column:9/13;grid-row:1/2;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+.status .now{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.status .clk{font-size:13px;opacity:.7}
+.dot{width:12px;height:12px;border-radius:50%;background:var(--live);animation:pulse 1.8s infinite}.dot.off{background:#ff6b5b;animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,210,122,.6)}70%{box-shadow:0 0 0 12px rgba(47,210,122,0)}}
+.rate{grid-column:9/13;grid-row:2/5;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.rate .big{font-family:'Fraunces';font-size:150px;line-height:.85;color:var(--butter);position:relative;z-index:2}
+.rate .stars{font-size:24px;letter-spacing:6px;color:var(--butter);position:relative;z-index:2}
+.rate small{font-size:14px;opacity:.85;display:block;margin-top:6px;position:relative;z-index:2}
+.rate .lab{position:relative;z-index:2}
+.waves{position:absolute;left:0;right:0;bottom:0;height:60%;z-index:1;opacity:.55}
+.waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%;animation:wv 9s linear infinite}
+.waves svg+svg{animation-duration:14s;animation-direction:reverse;opacity:.7}
+@keyframes wv{to{transform:translateX(-50%)}}
+.menu{grid-column:1/7;grid-row:5/8;background:#fff}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
+.tab{padding:8px 15px;border-radius:30px;border:1.5px solid var(--navy);font-size:13px;font-weight:700;transition:.25s}
+.tab.on{background:var(--navy);color:var(--butter)}
+.pane{display:none;animation:fadeup .5s ease}.pane.on{display:grid;grid-template-columns:1fr 150px;gap:18px;align-items:start}
+@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pane h3{font-family:'Fraunces';font-weight:700;font-size:38px;line-height:1}
+.pane p{margin-top:10px;font-size:15px;line-height:1.5;color:#445}
+.pane ul{list-style:none;margin-top:10px}.pane li{padding:7px 0;border-top:1px dashed var(--line);font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+.pane li em{font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--wood);font-weight:800}
+.pane img{width:150px;height:190px;object-fit:cover;border-radius:18px}
+.bar{height:3px;background:#0001;border-radius:3px;margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--navy)}
+.quotes{grid-column:7/13;grid-row:5/8;background:var(--butter);display:flex;flex-direction:column;justify-content:space-between;padding:34px}
+.q{display:none;font-family:'Fraunces';font-size:32px;line-height:1.2;animation:fadeup .6s ease}.q.on{display:block}
+.q .who{display:block;font:800 12px 'Manrope';letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
+.pips{display:flex;gap:6px}.pips i{width:24px;height:4px;border-radius:4px;background:#0d1f4533}.pips i.on{background:var(--ink)}
+.plate{grid-column:1/5;grid-row:8/11}
+.visit{grid-column:5/10;grid-row:8/11}
+.visit .panel{position:absolute;left:18px;right:18px;bottom:18px;border-radius:20px;padding:20px;background:rgba(251,247,236,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.visit .lab{color:var(--navy);display:block;margin-bottom:3px;font-size:11px}.visit p{font-size:14px;line-height:1.35;font-weight:700}
+.order{grid-column:10/13;grid-row:8/11;background:var(--wood);color:var(--ink)}
+.order .txt{position:absolute;left:26px;top:26px;right:26px;z-index:2}
+.order h3{font-family:'Fraunces';font-weight:700;font-size:42px;line-height:.98}
+.order a{display:inline-block;margin-top:16px;background:var(--ink);color:var(--butter);padding:13px 20px;border-radius:40px;font-weight:700;font-size:14px;text-decoration:none}
+.order img.bg{top:58%;height:42%}
+.foot{padding:10px 40px 50px;max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
+.foot .F{font-size:14vw;font-weight:700;line-height:.8;color:var(--navy);letter-spacing:.04em}
+@media (max-width:820px){
+ header{padding:14px 16px}header .r .chip:not(.dark){display:none}header .logo{font-size:26px}
+ .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px;padding:0 12px 20px}
+ .bento>.t{grid-column:1/-1!important;grid-row:auto!important;min-height:180px}
+ .hero{min-height:640px!important}.hero h1{font-size:15vw}.hero p{font-size:15px}.hero .txt{left:20px;right:20px;bottom:22px}
+ .status{padding:16px 18px;min-height:0!important}.status .clk{display:none}
+ .rate{min-height:340px!important}.rate .big{font-size:30vw}
+ .pane.on{grid-template-columns:1fr}.pane img{display:none}.pane h3{font-size:30px}
+ .quotes{min-height:300px!important;padding:26px}.q{font-size:23px}
+ .plate{min-height:320px!important}.visit{min-height:440px!important}.order{min-height:330px!important}.order h3{font-size:38px}
+ .foot{flex-direction:column;align-items:flex-start;gap:10px;padding:10px 16px 100px}.foot .F{font-size:26vw}
+}
+</style></head>
+<body data-book="book.html" data-pvlabel="A preview made for Coast Seafood">
+<div class="loader"><div class="F split">COAST</div><div class="lab">Seafood · Lake Worth Beach</div></div>
+<header><div class="logo">COAST<small>SEAFOOD · LAKE WORTH BEACH</small></div><div class="r"><a class="chip" href="#">Menu</a><a class="chip" href="#">Visit</a><a class="chip dark" href="#" data-cursor="RESERVE">Reserve a table</a></div></header>
+<main class="bento">
+<section class="t hero" data-cursor="WELCOME"><div class="kb"><img src="img/gm00.jpg" alt="Coast Seafood storefront with its blue awning"><img src="img/gm02.jpg" alt="The dining room"><img src="img/gm08.jpg" alt="Stone crab"></div>
+<div class="txt"><span class="lab" style="color:var(--butter)">Chef-owned · Family-run · On South J Street</span><h1 class="split">Neighborhood seafood,</h1><h1><em class="split">cooked by Blair.</em></h1><p>Fresh fish and a family that treats every table like guests at home. A cozy dining room steps off Lake Avenue in downtown Lake Worth Beach.</p></div></section>
+<section class="t status"><div class="now"><span class="dot" id="dot"></span><span id="st">checking</span></div><span class="clk" id="clk"></span></section>
+<section class="t rate pad"><span class="lab">What guests say</span><div><div class="big"><span class="cnt" data-to="4.8" data-dec="1">4.8</span></div><div class="stars">★★★★★</div><small>86 Google reviews</small></div>
+<div class="waves"><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 60 Q150 10 300 60 T600 60 T900 60 T1200 60 V120 H0Z" fill="#2f5aa8"/></svg><svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0 70 Q150 25 300 70 T600 70 T900 70 T1200 70 V120 H0Z" fill="#0d1f45"/></svg></div></section>
+<section class="t menu pad" id="menu"><span class="lab" style="color:var(--wood)">The menu · hover a tab</span>
+<div class="tabs"><span class="tab on">To start</span><span class="tab">From the sea</span><span class="tab">Something sweet</span></div>
+<div class="pane on"><div><h3>To start</h3><p>Fresh catches change with the market. Ask about today's specials.</p><ul><li>New England Clam Chowder <em>favorite</em></li><li>Smoked Fish Dip with sesame crackers</li><li>Flash-Fried Artichokes</li><li>Crab Cake over warm corn salad <em>favorite</em></li></ul></div><img src="img/gm01.jpg" alt=""></div>
+<div class="pane"><div><h3>From the sea</h3><p>Redfish in tomato broth, swordfish over a market salad and more.</p><ul><li>Shrimp-Wrapped Scallops</li><li>Redfish in a tomato broth</li><li>Grilled Swordfish</li><li>Blackened Shrimp Po' Boy</li></ul></div><img src="img/gm07.jpg" alt=""></div>
+<div class="pane"><div><h3>Something sweet</h3><p>The bread pudding has its own fan club.</p><ul><li>Apple Cinnamon Bread Pudding <em>favorite</em></li><li>Chocolate Mousse</li></ul></div><img src="img/gm05.jpg" alt=""></div>
+<div class="bar"><i id="bar"></i></div></section>
+<section class="t quotes" id="reviews"><span class="lab">Neighbors say</span>
+<div><p class="q on">"Wow, this place is special! This is neighborhood seafood at its finest."<span class="who">Sarah D. · Google</span></p>
+<p class="q">"The New England clam chowder is delicious, a beautiful balance between creamy and light with lots of clam!"<span class="who">Robyn A. · Google</span></p>
+<p class="q">"Food and service are superior… Best bread puddings ever."<span class="who">Roberta C. · Google</span></p></div>
+<div class="pips"><i class="on"></i><i></i><i></i></div></section>
+<section class="t plate"><img class="bg" src="img/gm08.jpg" alt="Stone crab"><span class="cap">stone crab, fresh</span></section>
+<section class="t visit" id="visit"><img class="bg" src="img/gm00.jpg" alt=""><div class="panel"><div><span class="lab">Find us</span><p>17 S J St<br>Lake Worth Beach, FL 33460</p></div><div><span class="lab">Call</span><p>(561) 855-4630</p></div><div><span class="lab">Wed – Fri</span><p>11:30 – 3 · 5:30 – 9</p></div><div><span class="lab">Sat · Sun</span><p>Sat 11:30 – 9:30<br>Sun 11:30 – 3</p></div></div></section>
+<section class="t order"><div class="txt"><h3>Pull up a chair on J Street.</h3><a href="#" data-cursor="RESERVE">Reserve a table</a></div><img class="bg" src="img/gm07.jpg" alt=""></section>
+</main>
+<div class="foot"><div class="F">COAST</div><span class="lab">17 S J St · Lake Worth Beach · © 2027</span></div>
+<script src="../fx/fx.js"></script>
+<script>
+(()=>{
+// [open,close] windows per weekday (0=Sun); Mon/Tue closed
+const W={0:[[11.5,15]],1:[],2:[],3:[[11.5,15],[17.5,21]],4:[[11.5,15],[17.5,21]],5:[[11.5,15],[17.5,21]],6:[[11.5,21.5]]};
+const fmt=x=>{const hh=Math.floor(x),mm=Math.round((x-hh)*60);return (hh%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(hh<12?' AM':' PM')};
+const DN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+function tick(){const n=new Date(new Date().toLocaleString('en-US',{timeZone:'America/New_York'})),d=n.getDay(),h=n.getHours()+n.getMinutes()/60;
+ let msg='',open=false;
+ for(const[o,c]of W[d]){if(h>=o&&h<c){open=true;msg='Open now · until '+fmt(c);break}}
+ if(!open){let nx=null;for(const[o]of W[d]){if(h<o){nx='today at '+fmt(o);break}}
+  for(let k=1;!nx&&k<=7;k++){const dd=(d+k)%7;if(W[dd].length)nx=(k==1?'tomorrow':DN[dd])+' at '+fmt(W[dd][0][0])}
+  msg='Closed · opens '+nx}
+ document.getElementById('dot').className='dot'+(open?'':' off');document.getElementById('st').textContent=msg;
+ document.getElementById('clk').textContent='Lake Worth '+n.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}
+tick();setInterval(tick,30000);
+const tabs=[...document.querySelectorAll('.tab')],panes=[...document.querySelectorAll('.pane')],bar=document.getElementById('bar');let cur=0,t0=performance.now(),hold=false;
+function show(i){cur=i;tabs.forEach((t,j)=>t.classList.toggle('on',j==i));panes.forEach((p,j)=>p.classList.toggle('on',j==i));t0=performance.now()}
+tabs.forEach((t,i)=>t.addEventListener('mouseenter',()=>{show(i);hold=true}));document.querySelector('.menu').addEventListener('mouseleave',()=>hold=false);
+(function loop(n){const p=Math.min(1,(n-t0)/3800);bar.style.width=(hold?100:p*100)+'%';if(!hold&&p>=1)show((cur+1)%tabs.length);requestAnimationFrame(loop)})(t0);
+const qs=[...document.querySelectorAll('.q')],pips=[...document.querySelectorAll('.pips i')];let qi=0;setInterval(()=>{qs[qi].classList.remove('on');pips[qi].classList.remove('on');qi=(qi+1)%qs.length;qs[qi].classList.add('on');pips[qi].classList.add('on')},4800);
+document.querySelectorAll('.cnt').forEach(el=>{const to=+el.dataset.to,dec=+(el.dataset.dec||0);new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1500);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec);if(p<1)requestAnimationFrame(f)})(s)})},{threshold:.3}).observe(el)});
+})();
+</script></body></html>
