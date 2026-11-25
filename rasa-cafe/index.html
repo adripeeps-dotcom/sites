@@ -82,6 +82,7 @@ body{background:var(--rye);color:var(--linen);font-family:'Commissioner',sans-se
 .card small{display:block;font-family:'Commissioner';font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-top:16px;color:var(--beet)}
 .card:nth-child(1){rotate:-3deg}.card:nth-child(2){rotate:2deg;margin-top:34px;border-top-color:var(--green)}.card:nth-child(3){rotate:-1.5deg;border-top-color:var(--amber)}
 .card:hover{transform:scale(1.06) rotate(2deg)}
+.mq{position:absolute;left:0;right:0;bottom:30px;font-family:"Yeseva One";font-size:64px;color:var(--beet);opacity:.9}
 /* 6 visit */
 .p6{background:var(--rye);display:grid;grid-template-columns:1fr 1fr}
 .p6 .l{padding:110px 56px 60px;display:flex;flex-direction:column;justify-content:center}
@@ -101,7 +102,7 @@ footer .Y{font-size:60px;color:var(--amber)}
  .p2{grid-template-columns:1fr}.p2 .l{padding:70px 20px 40px}.p2 .huge{font-size:44vw}.p2 h3{font-size:9vw}.p2 .r{height:100vw}
  .p3{padding:60px 0 40px}.p3 .head{flex-direction:column;align-items:flex-start;padding:0 20px 18px}.p3 h2{font-size:17vw}.reel{padding:10px 20px 20px}.dish{flex-basis:76vw;height:98vw}.also{margin:0 20px;font-size:15px}
  .p4{grid-template-columns:1fr}.p4 .l{height:80vw}.p4 .r{padding:50px 20px}.p4 h2{font-size:17vw}
- .p5{padding:60px 20px}.p5 h2{font-size:17vw}.wall{grid-template-columns:1fr;gap:22px}.card{font-size:22px}.card:nth-child(2){margin-top:0}
+ .mq{display:none}.p5{padding:60px 20px}.p5 h2{font-size:17vw}.wall{grid-template-columns:1fr;gap:22px}.card{font-size:22px}.card:nth-child(2){margin-top:0}
  .p6{grid-template-columns:1fr}.p6 .l{padding:60px 20px}.p6 h2{font-size:17vw}.p6 .info p{font-size:17px}.p6 .r{height:80vw}
  footer{flex-direction:column;gap:8px;padding:30px 20px 100px}footer .Y{font-size:16vw}
 }
@@ -115,7 +116,7 @@ footer .Y{font-size:60px;color:var(--amber)}
 <div class="wrap"><div class="stripe"></div><h1 class="Y split">RASA</h1>
 <div class="sub"><p>Homemade Lithuanian comfort food in Earlham, Norwich. Generous plates cooked like home, good coffee, and a little shop next door full of fine food.</p><span class="lab" style="color:var(--amber)">Open every day · 10 am to 8 pm</span></div></div></section>
 
-<section class="panel p2"><div class="l"><span class="lab">The people have spoken</span><div class="Y huge"><span class="cnt" data-to="4.3" data-dec="1">0</span></div><h3 class="Y">stars from 175 guests who came for "ridiculously delicious" food</h3><p>Potato pancakes, sweet pancakes, soups with dark rye bread. Plates that people call "incredibly tasty and plentiful."</p></div>
+<section class="panel p2"><div class="l"><span class="lab">The people have spoken</span><div class="Y huge"><span class="cnt" data-to="4.3" data-dec="1">4.3</span></div><h3 class="Y">stars from 175 guests who came for "ridiculously delicious" food</h3><p>Potato pancakes, sweet pancakes, soups with dark rye bread. Plates that people call "incredibly tasty and plentiful."</p></div>
 <div class="r"><img src="img/gm07.jpg" alt="Pink soup with fritters"><div class="ring"></div><span class="tag">pink soup, golden fritters</span></div></section>
 
 <section class="panel p3"><div class="head"><h2 class="Y">From our <em>kitchen</em></h2><span class="hand">drag the plates →</span></div>
@@ -129,14 +130,15 @@ footer .Y{font-size:60px;color:var(--amber)}
 </div>
 <div class="also"><b>Also on the menu:</b> chicken kebab · chicken curry · pork ribs · cheburek · fantastic coffee · cold beer in the fridge</div></section>
 
-<section class="panel p4"><div class="l"><img src="img/gm00.jpg" alt=""></div><div class="r"><span class="lab" style="color:var(--yel)">Next door</span><h2 class="Y">Visit our <em>shop</em></h2><p>Take a taste of Lithuania home. Guests say the shop next door is "full of fine food."</p><span class="beer">and yes, cold beer in the fridge</span></div></section>
+<section class="panel p4"><div class="l"><img src="img/gm06.jpg" alt=""></div><div class="r"><span class="lab" style="color:var(--yel)">Next door</span><h2 class="Y">Visit our <em>shop</em></h2><p>Take a taste of Lithuania home. Guests say the shop next door is "full of fine food."</p><span class="beer">and yes, cold beer in the fridge</span></div></section>
 
 <section class="panel p5"><h2 class="Y">"A gem in the area"</h2>
 <div class="wall">
 <div class="card"><span class="s">★★★★★</span>"Ridiculously delicious Lithuanian food here."<small>Lauren · Google</small></div>
 <div class="card"><span class="s">★★★★★</span>"Incredibly tasty and plentiful, exceptional value for money."<small>Samantha G. · Google</small></div>
 <div class="card"><span class="s">★★★★★</span>"Great Lithuanian café with extensive menu. Lovely comfort food."<small>John W. · Google</small></div>
-</div></section>
+</div>
+<div class="marq mq"><div><span>Potato pancakes · Sweet pancakes · Red soup · Pink soup · Dumplings · Fish &amp; chips · Cheburek · </span><span>Potato pancakes · Sweet pancakes · Red soup · Pink soup · Dumplings · Fish &amp; chips · Cheburek · </span></div></div></section>
 
 <section class="panel p6"><div class="l"><span class="lab" style="color:var(--amber)">Come and eat</span><h2 class="Y">Find <em>us</em></h2>
 <div class="info"><div><span class="lab">Address</span><p>31 Earlham West Centre<br>Norwich NR5 8AD</p></div><div><span class="lab">Call</span><p>01603 666452</p></div><div><span class="lab">Every day</span><p>10 am to 8 pm</p></div><div><span class="lab">Order</span><p>Eat in, takeaway<br>or delivery</p></div></div>
