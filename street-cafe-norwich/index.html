@@ -2,132 +2,193 @@
 <html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Street Cafe and Coffee Bar | Magdalen Street, Norwich</title>
 <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../fx/fx.css">
-<style>
-:root{--dove:#8d8a96;--ink:#2d2b33;--cream:#f6f0e6;--rasp:#b0243f;--blue:#7fa3c9;--orange:#e8683a;--live:#2fd27a;--line:#2d2b3322}
+<link rel="stylesheet" href="../fx/fx.css"><style>
+:root{--bg:#f6f0e6;--fg:#2d2b33;--dark:#2d2b33;--darkfg:#f6f0e6;--acc:#e8683a;--accfg:#2d2b33;--acc2:#b0243f;--acc3:#b0243f;--foot:#b0243f;--footfg:#f6f0e6;--D:'Gilda Display',serif;--B:'Red Hat Text',sans-serif}
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--cream);color:var(--ink);font-family:'Red Hat Text',sans-serif;overflow-x:clip}
-.G{font-family:'Gilda Display',serif}
-.lab{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-.loader{background:var(--rasp);color:var(--cream);flex-direction:column}
-.loader .G{font-size:90px}.loader .lab{margin-top:8px;color:#f3c9d1}
-header{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;max-width:1440px;margin:0 auto}
-header .logo{font-family:'Gilda Display';font-size:30px;line-height:1}
-header .logo small{display:block;font:700 11px 'Red Hat Text';letter-spacing:.2em;text-transform:uppercase;color:var(--rasp);margin-top:4px}
-header .r{display:flex;gap:10px}
-.chip{border:1.5px solid var(--ink);border-radius:40px;padding:11px 18px;font-size:13px;font-weight:700;color:inherit;text-decoration:none;transition:.25s}
-.chip:hover{background:var(--ink);color:var(--cream)}
-.chip.dark{background:var(--rasp);border-color:var(--rasp);color:#fff}
-.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:132px;gap:20px;padding:0 40px 40px;max-width:1440px;margin:0 auto}
-.t{position:relative;border-radius:28px;overflow:hidden;background:#fff;transition:transform .45s cubic-bezier(.2,.85,.2,1),box-shadow .45s}
-.t:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(45,43,51,.16)}
-.t img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.85,.2,1)}
-.t:hover img.bg{transform:scale(1.06)}
-.pad{padding:28px}
-.cap{position:absolute;left:18px;bottom:16px;color:#fff;font-size:13px;font-weight:500;background:rgba(45,43,51,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 14px;border-radius:20px}
-.hero{grid-column:1/9;grid-row:1/5}
-.hero .kb img{filter:brightness(.62)}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(20,8,10,.72) 100%);z-index:1;pointer-events:none}
-.hero .txt{position:absolute;left:34px;right:34px;bottom:34px;color:#fff;z-index:2}
-.hero h1{font-family:'Gilda Display';font-weight:400;font-size:92px;line-height:.95}
-.hero h1 em{font-style:italic;color:#f7b9c4}
-.hero p{margin-top:16px;font-size:18px;line-height:1.5;max-width:560px}
-.status{grid-column:9/13;grid-row:1/2;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:0 28px}
-.status .now{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px}
-.status .clk{font-size:13px;opacity:.7}
-.dot{width:12px;height:12px;border-radius:50%;background:var(--live);animation:pulse 1.8s infinite}
-.dot.off{background:#ff6b5b;animation:none}
+body{background:var(--bg);color:var(--fg);font-family:var(--B);overflow-x:clip}
+a{color:inherit;text-decoration:none}
+.D{font-family:var(--D)}
+.lab{font-size:12px;letter-spacing:.3em;text-transform:uppercase;font-weight:700}
+.loader{background:var(--dark);color:var(--darkfg);flex-direction:column;gap:10px}
+.loader .D{font-size:110px;color:var(--acc)}
+nav{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center;padding:12px 14px 12px 30px;border-radius:60px;background:rgba(10,10,10,.28);color:#fff}
+nav .logo{font-family:var(--D);font-size:25px;letter-spacing:.04em}
+nav .links{display:flex;gap:36px}
+nav .links a{position:relative}nav .links a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--acc);transition:right .35s}nav .links a:hover::after{right:0}
+nav .order{background:var(--acc);color:var(--accfg);padding:14px 24px;border-radius:40px;transition:.3s}nav .order:hover{background:#fff;color:#111}
+.hero{position:relative;height:100vh;min-height:860px;overflow:hidden;background:var(--dark);color:#fff}
+.stat{display:inline-flex;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.dot{width:12px;height:12px;border-radius:50%;background:#2fd27a;animation:pulse 1.8s infinite;flex:0 0 12px}.dot.off{background:#ff6b5b;animation:none}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,210,122,.6)}70%{box-shadow:0 0 0 12px rgba(47,210,122,0)}}
-.rate{grid-column:9/13;grid-row:2/5;background:var(--rasp);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
-.rate .big{font-family:'Gilda Display';font-size:150px;line-height:.85}
-.rate .stars{font-size:26px;letter-spacing:6px;color:#ffd7a8}
-.rate small{font-size:14px;opacity:.85;display:block;margin-top:6px}
-.menu{grid-column:1/7;grid-row:5/8;background:#fff}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 18px}
-.tab{padding:8px 15px;border-radius:30px;border:1.5px solid var(--ink);font-size:13px;font-weight:700;transition:.25s}
-.tab.on{background:var(--ink);color:var(--cream)}
-.pane{display:none;animation:fadeup .5s ease}
-.pane.on{display:grid;grid-template-columns:1fr 160px;gap:18px;align-items:start}
-@keyframes fadeup{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.pane h3{font-family:'Gilda Display';font-weight:400;font-size:40px;line-height:1}
-.pane p{margin-top:10px;font-size:16px;line-height:1.5;color:#555}
-.pane ul{list-style:none;margin-top:12px}.pane li{padding:7px 0;border-top:1px dashed var(--line);font-size:14px;font-weight:500}
-.pane img{width:160px;height:180px;object-fit:cover;border-radius:18px}
-.bar{height:3px;background:#0001;border-radius:3px;margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--rasp)}
-.quotes{grid-column:7/13;grid-row:5/8;background:var(--blue);color:var(--ink);display:flex;flex-direction:column;justify-content:space-between;padding:34px}
-.q{display:none;font-family:'Gilda Display';font-size:34px;line-height:1.2;animation:fadeup .6s ease}
-.q.on{display:block}
-.q .who{display:block;font:700 12px 'Red Hat Text';letter-spacing:.14em;text-transform:uppercase;margin-top:16px}
-.pips{display:flex;gap:6px}.pips i{width:24px;height:4px;border-radius:4px;background:#2d2b3333}.pips i.on{background:var(--ink)}
-.cosy{grid-column:1/5;grid-row:8/11;cursor:pointer}
-.cosy img.b2{opacity:0;transition:opacity .6s}
-.cosy:hover img.b2{opacity:1}
-.visit{grid-column:5/10;grid-row:8/11}
-.visit .panel{position:absolute;left:18px;right:18px;bottom:18px;border-radius:20px;padding:22px;background:rgba(246,240,230,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.visit .lab{color:var(--rasp);display:block;margin-bottom:4px}
-.visit p{font-size:15px;line-height:1.4;font-weight:700}
-.order{grid-column:10/13;grid-row:8/11;background:var(--orange);color:#fff}
-.order .txt{position:absolute;left:26px;top:26px;right:26px;z-index:2}
-.order h3{font-family:'Gilda Display';font-weight:400;font-size:46px;line-height:.95}
-.order a{display:inline-block;margin-top:18px;background:#fff;color:var(--ink);padding:13px 20px;border-radius:40px;font-weight:700;font-size:14px;text-decoration:none}
-.order img.bg{top:55%;height:45%}
-.foot{padding:10px 40px 50px;max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end}
-.foot .G{font-size:9vw;line-height:.85;color:var(--rasp)}
+.marq{background:var(--dark);color:var(--acc);padding:24px 0}
+.marq span{font-family:var(--D);font-style:italic;font-size:52px;padding-right:30px}
+.marq b{color:var(--darkfg);font-weight:300;padding-right:30px;font-size:52px;opacity:.6}
+.say{padding:150px 60px 110px;display:grid;grid-template-columns:1fr 1.05fr;gap:70px;align-items:center}
+.say h2{font-family:var(--D);font-weight:var(--hw,400);font-size:170px;line-height:.86;letter-spacing:-.03em}
+.say h2 .it{font-style:italic;color:var(--acc2)}
+.say blockquote{font-family:var(--D);font-style:italic;font-size:42px;line-height:1.2;border-left:6px solid var(--acc);padding-left:34px}
+.say cite{display:block;font-family:var(--B);font-style:normal;font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-top:22px;font-weight:700;color:var(--acc2)}
+.col{position:relative;height:1500px}
+.col .w{position:absolute;font-family:var(--D);font-size:220px;line-height:.85;letter-spacing:-.03em;z-index:3;pointer-events:none;white-space:nowrap}
+.col .ph{position:absolute;overflow:hidden;z-index:1;border-radius:6px}
+.col .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.col .ph:hover img{transform:scale(1.08)}
+.col .arch{border-radius:300px 300px 6px 6px}.col .round{border-radius:50%}
+.carta{padding:130px 60px 150px;background:var(--dark);color:var(--darkfg)}
+.carta .ttl{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:56px}
+.carta .ttl h2{font-family:var(--D);font-size:160px;font-weight:var(--hw,400);font-style:italic;line-height:.8;letter-spacing:-.03em}
+.carta .ttl .lab{color:var(--acc)}
+.grp{display:grid;grid-template-columns:260px 1fr;border-top:1px solid rgba(255,255,255,.2);padding:32px 0}
+.grp .h{font-family:var(--D);font-size:30px}
+.grp .h .rn{display:block;font-size:76px;color:var(--acc);line-height:.9;margin-bottom:6px}
+.dish{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:11px 0;position:relative;z-index:2}
+.dish .F{font-family:var(--D);font-size:56px;line-height:1.05;transition:color .35s,transform .45s cubic-bezier(.2,.85,.2,1);display:inline-block}
+.dish:hover .F{color:var(--acc);font-style:italic;transform:translateX(26px)}
+.dish .lab{color:rgba(255,255,255,.5);text-align:right}
+.full{position:relative;height:110vh;min-height:860px;overflow:hidden}
+.full>img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover}
+.full .panel{position:absolute;left:60px;bottom:80px;z-index:2;width:640px;padding:48px;border-radius:26px;color:#fff;background:rgba(10,10,10,.3)}
+.full h2{font-family:var(--D);font-size:130px;font-weight:var(--hw,400);line-height:.88;letter-spacing:-.02em}
+.full h2 b{font-style:italic;color:var(--acc);font-weight:inherit}
+.full p{font-size:18px;line-height:1.6;margin-top:22px;font-weight:500}
+.hs{background:var(--acc)}
+.hs .hs-track{align-items:center}
+.hs .intro{flex:0 0 600px}
+.hs .intro h2{font-family:var(--D);font-size:170px;font-weight:var(--hw,400);line-height:.82;letter-spacing:-.03em;color:var(--accfg)}
+.hs .intro .lab{display:block;margin-top:24px;color:var(--accfg)}
+.q{flex:0 0 540px;height:540px;padding:44px;border-radius:24px;background:rgba(255,255,255,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(0,0,0,.12);display:flex;flex-direction:column;justify-content:space-between;color:var(--accfg)}
+.q p{font-family:var(--D);font-size:42px;line-height:1.12;font-style:italic}
+.qi{flex:0 0 430px;height:620px;border-radius:300px 300px 24px 24px;overflow:hidden}
+.qi img{width:100%;height:100%;object-fit:cover}
+.score{flex:0 0 600px;font-family:var(--D);font-size:300px;font-style:italic;color:var(--acc3);line-height:.8}
+.visit{display:grid;grid-template-columns:1fr 1fr;background:var(--dark);color:var(--darkfg)}
+.visit .t{padding:120px 60px}
+.visit h2{font-family:var(--D);font-size:150px;font-weight:var(--hw,400);line-height:.88}
+.visit h2 b{font-style:italic;color:var(--acc);font-weight:inherit}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin:50px 0}
+.vg .lab{color:var(--acc);display:block;margin-bottom:10px}
+.vg p{font-family:var(--D);font-size:25px;line-height:1.35}
+.btn{display:inline-flex;gap:14px;background:var(--acc);color:var(--accfg);padding:20px 36px;border-radius:50px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:14px;transition:.3s}
+.btn:hover{background:#fff;color:#111;gap:26px}
+.visit .img{overflow:hidden;position:relative}
+.visit .img img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+footer{padding:46px 60px 28px;background:var(--foot);color:var(--footfg);overflow:hidden}
+footer .F{font-family:var(--D);font-size:15vw;line-height:.85;letter-spacing:-.03em;text-align:center;white-space:nowrap}
+footer .f{display:flex;justify-content:space-between;gap:16px;margin-top:22px}
+.static .hs{height:auto}.static .hs-sticky{position:relative}
 @media (max-width:820px){
- header{padding:14px 16px}header .r .chip:not(.dark){display:none}header .logo{font-size:24px}
- .bento{grid-template-columns:1fr;grid-auto-rows:auto;gap:12px;padding:0 12px 20px}
- .bento>.t{grid-column:1/-1!important;grid-row:auto!important;min-height:180px}
- .hero{min-height:640px!important}.hero h1{font-size:17vw}.hero p{font-size:15px}.hero .txt{left:20px;right:20px;bottom:22px}
- .status{padding:16px 18px;min-height:0!important}.status .clk{display:none}
- .rate .big{font-size:30vw}
- .pane.on{grid-template-columns:1fr}.pane img{display:none}.pane h3{font-size:32px}
- .quotes{min-height:300px!important;padding:26px}.q{font-size:24px}
- .cosy{min-height:300px!important}.visit{min-height:440px!important}.order{min-height:330px!important}.order h3{font-size:40px}
- .foot{flex-direction:column;align-items:flex-start;gap:10px;padding:10px 16px 100px}.foot .G{font-size:17vw}
+ .hero{height:auto;min-height:100svh}
+ .loader .D{font-size:15vw}
+ .marq span,.marq b{font-size:34px}
+ .say{grid-template-columns:1fr;padding:80px 22px 60px;gap:36px}.say h2{font-size:21vw}.say blockquote{font-size:27px;padding-left:20px}
+ .carta{padding:70px 22px 80px}.carta .ttl{display:block;margin-bottom:34px}.carta .ttl h2{font-size:21vw}.carta .ttl .lab{display:none}
+ .grp{grid-template-columns:1fr;padding:24px 0}.grp .h .rn{font-size:54px}
+ .dish{flex-direction:column;gap:2px}.dish .F{font-size:29px}.dish .lab{text-align:left}.dish:hover .F{transform:none}
+ .full{height:auto;min-height:0;display:flex;flex-direction:column}
+ .full>img{position:relative;inset:auto;height:92vw;width:100%}
+ .full .panel{position:relative;left:auto;bottom:auto;width:auto;margin:-60px 14px 36px;padding:28px 24px;background:rgba(10,10,10,.82)}
+ .full h2{font-size:15vw}.full p{font-size:16px}
+ .hs .intro h2{font-size:22vw}.q{padding:28px}.q p{font-size:26px}.q{height:auto!important;min-height:300px}
+ .qi{height:90vw!important}.score{font-size:40vw;flex-basis:82vw!important;text-align:center}
+ .visit{grid-template-columns:1fr}.visit .t{padding:70px 22px}.visit h2{font-size:19vw}.vg{grid-template-columns:1fr 1fr;gap:26px 16px}.vg p{font-size:19px}
+ .visit .img{height:90vw}.visit .img img{inset:0;height:100%}
+ .btn{padding:18px 26px;font-size:13px}
+ footer{padding:36px 22px 28px}footer .F{font-size:17vw}footer .f{flex-direction:column;gap:8px}
 }
+
+
+.hero .kb img{filter:brightness(.6)}
+.hero .glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(232,104,58,.3),transparent 65%);left:var(--cx,40%);top:var(--cy,50%);transform:translate(-50%,-50%);pointer-events:none;z-index:2;transition:left .7s ease-out,top .7s ease-out}
+.hero .txt{position:absolute;left:52px;bottom:70px;z-index:4;max-width:1100px}
+.hero h1{font-family:var(--D);font-weight:400;font-size:200px;line-height:.86;letter-spacing:-.02em}
+.hero h1 em{color:var(--acc);font-style:italic}
+.hero .txt p{margin-top:22px;font-size:18px;line-height:1.6;max-width:560px}
+.sign{position:absolute;right:150px;top:0;z-index:5;transform-origin:50% 0;animation:swing 5s ease-in-out infinite alternate;width:230px}
+.sign:before,.sign:after{content:"";position:absolute;top:0;width:2px;height:90px;background:#f6f0e6;opacity:.8;left:42px}.sign:after{left:188px}
+.sign .b{margin-top:88px;border-radius:14px;background:#f6f0e6;color:#2d2b33;text-align:center;padding:22px 10px 18px;border:4px solid #b0243f;box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.sign .b small{display:block;font-size:11px;letter-spacing:.3em;font-weight:700;color:#b0243f}
+.sign .b strong{display:block;font-family:var(--D);font-weight:400;font-size:60px;line-height:1;margin-top:4px}
+.sign .b strong:after{content:"CLOSED"}.sign[data-open="1"] .b strong:after{content:"OPEN"}
+.sign[data-open="1"] .b strong{color:#2a9d62}.sign[data-open="0"] .b strong{color:#b0243f}
+@keyframes swing{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+.hero .pill{position:absolute;right:52px;bottom:70px;z-index:4;padding:22px 26px;border-radius:22px;width:300px}
+.hero .pill .big{font-family:var(--D);font-size:92px;line-height:.9;color:var(--acc)}
+.say h2{font-size:200px}
+@media (max-width:820px){
+ .sign{right:18px;width:130px;transform:none;animation-duration:5s}.sign:before{left:24px;height:50px}.sign:after{left:104px;height:50px}.sign .b{margin-top:48px;padding:12px 6px;border-width:3px}.sign .b strong{font-size:32px}.sign .b small{font-size:9px}
+ .hero{display:flex;flex-direction:column;justify-content:flex-end}
+ .hero .txt{position:relative;left:auto;bottom:auto;padding:200px 22px 24px;max-width:none}
+ .hero h1{font-size:19vw}.hero .txt p{font-size:16px}
+ .hero .pill{position:relative;right:auto;bottom:auto;width:auto;margin:0 22px 40px}
+ .say h2{font-size:25vw}
+}
+
 </style></head>
 <body data-book="book.html" data-pvlabel="A preview made for The Street Cafe">
-<div class="loader"><div class="G split">The Street Cafe</div><div class="lab">and Coffee Bar · Magdalen Street</div></div>
-<header><div class="logo">The Street Cafe<small>and Coffee Bar · Norwich</small></div><div class="r"><a class="chip" href="#">Menu</a><a class="chip" href="#">Visit</a><a class="chip dark" href="#" data-cursor="CALL">01603 766556</a></div></header>
-<main class="bento">
-<section class="t hero" data-cursor="HELLO"><div class="kb"><img src="img/gm00.jpg" alt="The Street Cafe shopfront"><img src="img/gm01.jpg" alt=""><img src="img/gm05.jpg" alt=""></div>
-<div class="txt"><span class="lab" style="color:#f7b9c4">147 Magdalen Street · Norwich</span><h1 class="split">Proper breakfasts,</h1><h1><em class="split">tea in a cosy.</em></h1><p>Big plates made fresh to order, a pot of tea under a hand-knitted cosy, and a homey little cafe the locals love.</p></div></section>
-<section class="t status"><div class="now"><span class="dot" id="dot"></span><span id="st">checking</span></div><span class="clk" id="clk"></span></section>
-<section class="t rate pad"><span class="lab">The verdict</span><div><div class="big"><span class="cnt" data-to="4.7" data-dec="1">4.7</span></div><div class="stars">★★★★★</div><small>673 Google reviews · vegan options too</small></div></section>
-<section class="t menu pad" id="menu"><span class="lab" style="color:var(--rasp)">From the kitchen · hover a tab</span>
-<div class="tabs"><span class="tab on">The Old English</span><span class="tab">Eggs &amp; baps</span><span class="tab">Waffles</span><span class="tab">Tea &amp; coffee</span></div>
-<div class="pane on"><div><h3>The Old English</h3><p>With black and white pudding and deep fried bubble &amp; squeak.</p><ul><li>Full English, made to order</li><li>Vegan breakfasts too</li></ul></div><img src="img/gm01.jpg" alt=""></div>
-<div class="pane"><div><h3>Eggs &amp; baps</h3><p>Baps one guest said were "bigger than my 2 hands put together."</p><ul><li>Smoked salmon with eggs</li><li>Breakfast baps</li><li>Porridge</li></ul></div><img src="img/gm04.jpg" alt=""></div>
-<div class="pane"><div><h3>Waffles</h3><p>A sweet start to the day, with scones if you like.</p><ul><li>Waffles</li><li>Scones</li></ul></div><img src="img/gm06.jpg" alt=""></div>
-<div class="pane"><div><h3>Tea &amp; coffee</h3><p>Coffee from the bar, or a proper pot of tea.</p><ul><li>Cappuccino</li><li>Pots of tea</li></ul></div><img src="img/gm07.jpg" alt=""></div>
-<div class="bar"><i id="bar"></i></div></section>
-<section class="t quotes" id="reviews"><span class="lab">What Norwich says</span>
-<div><p class="q on">"Very homey vibe and lovely staff. Would recommend going!"<span class="who">Google review</span></p>
-<p class="q">"Loved the ambiance and decor. There's an awesome menu selection of breakfast options."<span class="who">Russ B. · Google</span></p>
-<p class="q">"Very cute, friendly staff and clearly popular with the locals."<span class="who">Kyra J. · Google</span></p></div>
-<div class="pips"><i class="on"></i><i></i><i></i></div></section>
-<section class="t cosy"><img class="bg" src="img/gm08.jpg" alt="Hand-knitted tea cosy"><img class="bg b2" src="img/gm09.jpg" alt="Another knitted tea cosy"><span class="cap">hover: pick your cosy</span></section>
-<section class="t visit" id="visit"><img class="bg" src="img/gm03.jpg" alt=""><div class="panel"><div><span class="lab">Find us</span><p>147 Magdalen St<br>Norwich NR3 1NF</p></div><div><span class="lab">Call</span><p>01603 766556</p></div><div><span class="lab">Mon to Sat</span><p>8 am to 2 pm</p></div><div><span class="lab">Sunday</span><p>8 am to 1:30 pm</p></div></div></section>
-<section class="t order"><div class="txt"><h3>Kettle's<br>on.</h3><a href="#" data-cursor="CALL">Call ahead</a></div><img class="bg" src="img/gm07.jpg" alt=""></section>
-</main>
-<div class="foot"><div class="G">The Street Cafe</div><span class="lab">Magdalen Street · Norwich · © 2027</span></div>
-<script src="../fx/fx.js"></script>
-<script>
-(()=>{
-const H={0:[8,13.5]};for(let i=1;i<=6;i++)H[i]=[8,14];
-function tick(){const n=new Date(new Date().toLocaleString('en-US',{timeZone:'Europe/London'})),d=n.getDay(),h=n.getHours()+n.getMinutes()/60,[o,c]=H[d];
- const open=h>=o&&h<c,fmt=x=>{const hh=Math.floor(x),mm=Math.round((x-hh)*60);return (hh%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(hh<12?' am':' pm')};
- document.getElementById('dot').className='dot'+(open?'':' off');
- document.getElementById('st').textContent=open?`Open now · until ${fmt(c)}`:`Closed · opens ${fmt(h<o?o:H[(d+1)%7][0])}`;
- document.getElementById('clk').textContent='Norwich '+n.toLocaleTimeString('en-GB',{hour:'numeric',minute:'2-digit'})}
+<div class="loader"><div class="D split">The Street Cafe</div><div class="lab">Magdalen Street · Norwich</div></div>
+<nav class="glass"><div class="logo">The Street Cafe</div><div class="links lab"><a href="#menu">Menu</a><a href="#story">Story</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div><a class="order lab" href="#" data-cursor="BOOK">Call ahead</a></nav>
+<section class="hero"><div class="kb"><img src="img/gm00.jpg" alt=""><img src="img/gm03.jpg" alt=""><img src="img/gm05.jpg" alt=""></div><div class="glow"></div>
+<div class="sign" id="sign" data-open="1" data-cursor="KNOCK"><div class="b"><small>THE STREET CAFE</small><strong></strong></div></div>
+<div class="txt"><span class="lab" style="color:var(--acc)">147 Magdalen Street · Norwich</span><h1 class="split" data-cursor="HELLO">Proper</h1><h1><em class="split">breakfasts.</em></h1><p>Big plates made fresh to order, a pot of tea under a hand-knitted cosy, and a homey little cafe the locals love.</p></div>
+<div class="pill glass"><span class="lab">The verdict</span><div class="big">4.7★</div><span class="lab" style="opacity:.8">673 Google reviews</span></div></section>
+<div class="marq"><div><span>The Old English</span><b>/</b><span>Eggs &amp; baps</span><b>/</b><span>Waffles</span><b>/</b><span>Tea in a cosy</span><b>/</b><span>Vegan breakfasts</span><b>/</b><span>Cappuccino</span><b>/</b><span>The Old English</span><b>/</b><span>Eggs &amp; baps</span><b>/</b><span>Waffles</span><b>/</b><span>Tea in a cosy</span><b>/</b><span>Vegan breakfasts</span><b>/</b><span>Cappuccino</span><b>/</b></div></div>
+<section class="say" id="story"><h2><span class="split">Very</span><span class="split it">homey.</span></h2><blockquote data-reveal>"Loved the ambiance and decor. There's an awesome menu selection of breakfast options."<cite>Russ B. · Google</cite></blockquote></section>
+<section class="col">
+<figure class="ph arch" data-speed=".2" style="left:90px;top:0;width:440px;height:620px"><img src="img/gm01.jpg" alt=""></figure>
+<div class="w split" style="left:640px;top:30px;font-size:240px">Proper</div>
+<figure class="ph " data-speed="-.12" style="left:930px;top:330px;width:400px;height:400px"><img src="img/gm09.jpg" alt=""></figure>
+<div class="w split" style="left:110px;top:620px;font-style:italic;color:#b0243f;font-size:230px">breakfasts,</div>
+<figure class="ph round" data-speed=".25" style="left:520px;top:880px;width:370px;height:370px"><img src="img/gm07.jpg" alt=""></figure>
+<figure class="ph " data-speed=".1" style="left:100px;top:900px;width:330px;height:300px"><img src="img/gm08.jpg" alt=""></figure>
+<figure class="ph " data-speed="-.18" style="left:1010px;top:800px;width:340px;height:400px"><img src="img/gm05.jpg" alt=""></figure>
+<div class="w split" style="left:90px;top:1210px;font-size:190px">tea in a cosy.</div>
+</section>
+<section class="carta" id="menu"><div class="ttl"><h2 class="split">The Kitchen</h2><span class="lab">hover a dish</span></div><div class="hoverlist">
+<div class="grp"><div class="h"><span class="rn">I.</span>The Old English</div><div>
+<div class="dish" data-img="img/gm01.jpg" data-cursor="YUM"><span class="F">Black &amp; white pudding</span><span class="lab">with deep fried bubble &amp; squeak</span></div>
+<div class="dish" data-img="img/gm02.jpg" data-cursor="YUM"><span class="F">Full English</span><span class="lab">made to order</span></div>
+<div class="dish" data-img="img/gm01.jpg" data-cursor="YUM"><span class="F">Vegan breakfasts</span><span class="lab">too</span></div>
+</div></div>
+<div class="grp"><div class="h"><span class="rn">II.</span>Eggs &amp; baps</div><div>
+<div class="dish" data-img="img/gm04.jpg" data-cursor="YUM"><span class="F">Smoked salmon with eggs</span><span class="lab"></span></div>
+<div class="dish" data-img="img/gm04.jpg" data-cursor="YUM"><span class="F">Breakfast baps</span><span class="lab">bigger than two hands</span></div>
+<div class="dish" data-img="img/gm04.jpg" data-cursor="YUM"><span class="F">Porridge</span><span class="lab"></span></div>
+</div></div>
+<div class="grp"><div class="h"><span class="rn">III.</span>Waffles &amp; tea</div><div>
+<div class="dish" data-img="img/gm06.jpg" data-cursor="YUM"><span class="F">Waffles</span><span class="lab">a sweet start to the day</span></div>
+<div class="dish" data-img="img/gm06.jpg" data-cursor="YUM"><span class="F">Scones</span><span class="lab"></span></div>
+<div class="dish" data-img="img/gm08.jpg" data-cursor="YUM"><span class="F">Pots of tea</span><span class="lab">under a knitted cosy</span></div>
+<div class="dish" data-img="img/gm07.jpg" data-cursor="YUM"><span class="F">Cappuccino</span><span class="lab">from the bar</span></div>
+</div></div>
+</div></section>
+<section class="full"><img src="img/gm05.jpg" alt="" data-speed=".14" style="object-position:50% 60%"><div class="panel glass" data-reveal><h2>Kettle's <b>on.</b></h2><p>Sunny window tables, a hand-knitted cosy on every pot and staff the locals rave about. Very cute, friendly and clearly popular in the neighbourhood.</p></div></section>
+<section class="hs" id="reviews"><div class="hs-sticky"><div class="hs-track"><div class="intro"><h2><span class="split">Norwich</span><span class="split" style="font-style:italic">says.</span></h2><span class="lab">keep scrolling →</span></div>
+<div class="q"><p>"Very homey vibe and lovely staff. Would recommend going!"</p><span class="lab">Google review</span></div>
+<div class="qi"><img src="img/gm09.jpg" alt=""></div>
+<div class="q"><p>"Loved the ambiance and decor. There's an awesome menu selection of breakfast options."</p><span class="lab">Russ B. · Google</span></div>
+<div class="qi"><img src="img/gm06.jpg" alt=""></div>
+<div class="q"><p>"Very cute, friendly staff and clearly popular with the locals."</p><span class="lab">Kyra J. · Google</span></div>
+<div class="score">4.7★</div></div></div></section>
+<section class="visit" id="visit"><div class="t"><h2><span class="split">Kettle's on,</span><b class="split">come in.</b></h2>
+<div class="stat" style="margin-top:30px"><span class="dot" id="dot"></span><span id="st">checking</span><span class="lab" id="clk" style="opacity:.6;margin-left:10px"></span></div>
+<div class="vg"><div><span class="lab">Find us</span><p>147 Magdalen St<br>Norwich NR3 1NF</p></div><div><span class="lab">Call</span><p>01603 766556</p></div><div><span class="lab">Mon to Sat</span><p>8 am to 2 pm</p></div><div><span class="lab">Sunday</span><p>8 am to 1:30 pm</p></div></div>
+<a class="btn" href="#" data-cursor="BOOK">Call ahead <span>→</span></a></div><div class="img"><img src="img/gm03.jpg" alt="" data-speed=".12"></div></section>
+<footer><div class="F">The Street Cafe</div><div class="f lab"><span>Magdalen Street</span><span>Norwich · © 2027</span></div></footer>
+<script src="../fx/fx.js"></script><script>
+const W={"0": [[8, 13.5]], "1": [[8, 14]], "2": [[8, 14]], "3": [[8, 14]], "4": [[8, 14]], "5": [[8, 14]], "6": [[8, 14]]},TZ="Europe/London",CITY="Norwich",LOC="en-GB";
+const DN=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const fmt=x=>{const hh=Math.floor(x),mm=Math.round((x-hh)*60);return (hh%12||12)+(mm?':'+String(mm).padStart(2,'0'):'')+(hh<12?' am':' pm')};
+function tick(){const n=new Date(new Date().toLocaleString('en-US',{timeZone:TZ})),d=n.getDay(),h=n.getHours()+n.getMinutes()/60;let msg='',open=false;
+ for(const[o,cl]of W[d]){if(h>=o&&h<cl){open=true;msg='Open now, until '+fmt(cl);break}}
+ if(!open){let nx=null;for(const[o]of W[d]){if(h<o){nx='today at '+fmt(o);break}}
+  for(let k=1;!nx&&k<=7;k++){const dd=(d+k)%7;if(W[dd].length)nx=(k==1?'tomorrow':DN[dd])+' at '+fmt(W[dd][0][0])}msg='Closed, opens '+nx}
+ document.getElementById('dot').className='dot'+(open?'':' off');document.getElementById('st').textContent=msg;
+ document.getElementById('clk').textContent=CITY+' '+n.toLocaleTimeString(LOC,{hour:'numeric',minute:'2-digit'});
+ document.documentElement.classList.toggle('is-open',open);
+ const o=document.getElementById('sign');if(o)o.dataset.open=open?'1':'0'}
 tick();setInterval(tick,30000);
-const tabs=[...document.querySelectorAll('.tab')],panes=[...document.querySelectorAll('.pane')],bar=document.getElementById('bar');let cur=0,t0=performance.now(),hold=false;
-function show(i){cur=i;tabs.forEach((t,j)=>t.classList.toggle('on',j==i));panes.forEach((p,j)=>p.classList.toggle('on',j==i));t0=performance.now()}
-tabs.forEach((t,i)=>t.addEventListener('mouseenter',()=>{show(i);hold=true}));document.querySelector('.menu').addEventListener('mouseleave',()=>hold=false);
-(function loop(n){const p=Math.min(1,(n-t0)/3800);bar.style.width=(hold?100:p*100)+'%';if(!hold&&p>=1)show((cur+1)%tabs.length);requestAnimationFrame(loop)})(t0);
-const qs=[...document.querySelectorAll('.q')],pips=[...document.querySelectorAll('.pips i')];let qi=0;setInterval(()=>{qs[qi].classList.remove('on');pips[qi].classList.remove('on');qi=(qi+1)%qs.length;qs[qi].classList.add('on');pips[qi].classList.add('on')},4600);
-// cosy tile: auto-swap too (touch screens have no hover)
-const cz=document.querySelector('.cosy .b2');setInterval(()=>{if(!matchMedia('(hover:hover)').matches)cz.style.opacity=cz.style.opacity==1?0:1},3200);
-document.querySelectorAll('.cnt').forEach(el=>{const to=+el.dataset.to,dec=+(el.dataset.dec||0);new IntersectionObserver((es,o)=>{es.forEach(e=>{if(!e.isIntersecting)return;o.disconnect();const s=performance.now();(function f(t){const p=Math.min(1,(t-s)/1500);el.textContent=(to*(1-Math.pow(1-p,3))).toFixed(dec);if(p<1)requestAnimationFrame(f)})(s)})},{threshold:.3}).observe(el)});
-})();
+document.querySelectorAll('.hero').forEach(hr=>hr.addEventListener('mousemove',e=>{const r=hr.getBoundingClientRect();hr.style.setProperty('--cx',(e.clientX-r.left)+'px');hr.style.setProperty('--cy',(e.clientY-r.top)+'px');hr.style.setProperty('--mx',(e.clientX/innerWidth).toFixed(3));hr.style.setProperty('--my',(e.clientY/innerHeight).toFixed(3))}));
+
+
 </script></body></html>
