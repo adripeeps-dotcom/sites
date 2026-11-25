@@ -26,7 +26,8 @@ header .r{display:flex;gap:10px}
 .pad{padding:28px}
 .cap{position:absolute;left:18px;bottom:16px;color:#fff;font-size:13px;font-weight:500;background:rgba(45,43,51,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 14px;border-radius:20px}
 .hero{grid-column:1/9;grid-row:1/5}
-.hero .kb img{filter:brightness(.7)}
+.hero .kb img{filter:brightness(.62)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(20,8,10,.72) 100%);z-index:1;pointer-events:none}
 .hero .txt{position:absolute;left:34px;right:34px;bottom:34px;color:#fff;z-index:2}
 .hero h1{font-family:'Gilda Display';font-weight:400;font-size:92px;line-height:.95}
 .hero h1 em{font-style:italic;color:#f7b9c4}
