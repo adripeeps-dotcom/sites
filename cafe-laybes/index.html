@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cafe Laybes | Windsor, Brisbane</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--black:#121312;--char:#2f3335;--hedge:#4d7a3a;--lime:#a9d47a;--sage:#8fa58a;--paper:#f4f3ee;--latte:#c79a6b}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--black)}
+body{background:var(--black);color:var(--paper);font-family:'Syne',sans-serif;overflow-x:clip}
+.S{font-family:'Syne',sans-serif;font-weight:800;text-transform:uppercase;line-height:.86;letter-spacing:-.03em}
+.I{font-family:'Instrument Serif',serif;font-style:italic}
+.out{color:transparent;-webkit-text-stroke:1.5px var(--paper)}
+.lab{font-size:12px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
+a{color:inherit;text-decoration:none}
+.loader{background:var(--hedge);color:var(--paper);flex-direction:column;gap:12px}.loader .S{font-size:15vw}.loader .I{font-size:30px}
+nav{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center;padding:12px 14px 12px 28px;border-radius:60px;background:rgba(18,19,18,.3)}
+nav .S{font-size:22px}nav .links{display:flex;gap:30px}nav .links a{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+nav .call{background:var(--lime);color:var(--black);padding:12px 22px;border-radius:40px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:800}
+
+.hero{position:relative;height:100vh;min-height:840px;overflow:hidden}
+.hero .kb img{filter:saturate(1.1) brightness(.68)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,19,18,.5),transparent 30%,transparent 55%,var(--black));pointer-events:none}
+.hero .mega{position:absolute;left:0;right:0;bottom:44px;z-index:3;text-align:center;font-size:23vw;mix-blend-mode:difference;color:#fff}
+.hero .card{position:absolute;left:48px;top:140px;z-index:4;width:400px;padding:28px;border-radius:22px}
+.hero .card .I{font-size:46px;line-height:1}.hero .card p{font-size:14px;line-height:1.65;margin-top:14px;opacity:.9;font-family:system-ui,sans-serif}
+.hero .card .row{display:flex;gap:20px;align-items:baseline;margin-top:18px}.hero .card .row .S{font-size:48px;color:var(--lime)}
+.sun{position:absolute;right:56px;top:140px;z-index:4;width:290px;padding:20px 22px;border-radius:22px}
+.sun svg{width:100%;display:block}.sun .t{display:flex;justify-content:space-between;margin-top:8px}
+.sun .now{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:10px;display:flex;align-items:center;gap:8px}
+.dot{width:9px;height:9px;border-radius:50%;background:#46d37a;animation:pl 1.8s infinite}.dot.off{background:#e8705f;animation:none}@keyframes pl{0%{box-shadow:0 0 0 0 rgba(70,211,122,.6)}70%{box-shadow:0 0 0 9px rgba(70,211,122,0)}}
+
+.marq{background:var(--lime);color:var(--black);padding:16px 0;transform:rotate(-2deg) scale(1.05);position:relative;z-index:5;margin-top:-8px}
+.marq span{font-family:'Syne';font-weight:800;font-size:40px;text-transform:uppercase;padding-right:26px;letter-spacing:-.02em}
+.marq b{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-size:40px;padding-right:26px}
+
+.col{position:relative;height:1780px;margin-top:80px}
+.col .w{position:absolute;font-size:230px;z-index:2;pointer-events:none}
+.col .ph{position:absolute;overflow:hidden;z-index:1;border-radius:26px}
+.col .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}.col .ph:hover img{transform:scale(1.07)}
+.col .ph figcaption{position:absolute;left:14px;bottom:12px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;background:rgba(18,19,18,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:7px 12px;border-radius:30px}
+.col .note{position:absolute;font-family:'Instrument Serif';font-style:italic;font-size:34px;line-height:1.12;color:var(--lime);max-width:370px;z-index:3}
+
+.menu{padding:130px 64px 150px;background:var(--hedge)}
+.menu .top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px}.menu .top .S{font-size:130px}.menu .top .I{font-size:30px;max-width:380px;text-align:right}
+.item{display:grid;grid-template-columns:70px 1fr auto;align-items:center;border-top:1px solid rgba(244,243,238,.3);padding:22px 0;position:relative;z-index:2}
+.item:last-child{border-bottom:1px solid rgba(244,243,238,.3)}
+.item .n{font-size:13px;letter-spacing:.24em;font-weight:700;color:var(--lime)}
+.item h3{font-family:'Syne';font-weight:800;text-transform:uppercase;font-size:84px;line-height:.95;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px var(--paper);transition:color .4s,padding .5s}
+.item:hover h3{color:var(--paper);padding-left:28px}
+.item .d{text-align:right;font-family:'Instrument Serif';font-style:italic;font-size:25px;max-width:400px;opacity:.85}
+
+.hs .bg{position:absolute;inset:0}.hs .bg img{width:100%;height:100%;object-fit:cover;filter:blur(8px) brightness(.35);transform:scale(1.1)}
+.hs .hs-track{position:relative;z-index:2;align-items:center}
+.hs .intro{flex:0 0 560px}.hs .intro .S{font-size:150px}.hs .intro .lab{color:var(--lime);display:block;margin-top:22px}
+.rev{flex:0 0 500px;height:520px;border-radius:26px;padding:42px;display:flex;flex-direction:column;justify-content:space-between}
+.rev .q{font-family:'Instrument Serif';font-style:italic;font-size:42px;line-height:1.08}.rev .who{display:flex;justify-content:space-between}.rev .stars{color:var(--lime);letter-spacing:4px}
+.pic{flex:0 0 400px;height:600px;border-radius:26px;overflow:hidden}.pic img{width:100%;height:100%;object-fit:cover}
+.big4{flex:0 0 560px;text-align:center}.big4 .S{font-size:290px;color:transparent;-webkit-text-stroke:2px var(--lime)}
+
+.visit{position:relative;height:100vh;min-height:880px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.visit>img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;filter:brightness(.4) saturate(1.1)}
+.visit .ghost{position:absolute;top:100px;left:0;right:0;text-align:center;font-size:170px;z-index:1}
+.visit .panel{position:relative;z-index:2;width:720px;border-radius:26px;padding:50px;margin-top:200px}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:34px}.vg .lab{color:var(--lime);display:block;margin-bottom:8px}.vg p{font-size:21px;line-height:1.35;font-weight:600}
+.btn{display:inline-flex;gap:14px;background:var(--lime);color:var(--black);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:15px;padding:20px 32px;border-radius:60px;transition:.3s}.btn:hover{gap:24px;background:var(--paper)}
+footer{padding:50px 40px 30px;overflow:hidden}
+footer .S{font-size:21vw;text-align:center;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(169,212,122,.4);transition:color .6s}footer:hover .S{color:var(--hedge)}
+footer .f{display:flex;justify-content:space-between;margin-top:26px;font-size:11px;letter-spacing:.26em;text-transform:uppercase;opacity:.55;font-weight:700}
+.static .hs{height:auto}.static .hs-sticky{position:relative}
+@media (max-width:820px){
+ nav .S{font-size:18px}
+ .hero{height:auto;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 16px 40px;gap:14px}
+ .hero .card{position:relative;left:auto;top:auto;width:100%}.hero .card .I{font-size:34px}
+ .sun{position:relative;right:auto;top:auto;width:100%}
+ .hero .mega{position:relative;bottom:auto;font-size:25vw}
+ .marq span,.marq b{font-size:24px}
+ .col .note{font-size:24px!important;max-width:none!important}
+ .menu{padding:60px 16px}.menu .top{flex-direction:column;align-items:flex-start;gap:8px}.menu .top .S{font-size:19vw}.menu .top .I{text-align:left;font-size:22px}
+ .item{grid-template-columns:36px 1fr}.item .d{display:none}.item h3{font-size:10vw;color:var(--paper);-webkit-text-stroke:0}
+ .hs .intro .S{font-size:20vw}.rev{padding:24px!important}.rev .q{font-size:28px}.pic{height:110vw!important}.big4 .S{font-size:42vw}
+ .visit{height:auto;min-height:0;padding:80px 14px 30px;flex-direction:column}.visit .ghost{position:relative;top:auto;font-size:17vw}.visit .panel{width:100%;margin-top:20px;padding:24px}.vg{gap:16px}.vg p{font-size:17px}
+ footer .S{font-size:24vw}footer .f{flex-direction:column;gap:8px}
+}
+</style></head>
+<body data-book="book.html" data-pvlabel="A preview made for Cafe Laybes">
+<div class="loader"><div class="S split">Laybes</div><div class="I">love thy neighbour</div></div>
+<nav class="glass"><span class="S">Laybes</span><div class="links"><a href="#menu">Menu</a><a href="#reviews">Neighbours</a><a href="#visit">Visit</a></div><a class="call" href="#" data-cursor="ORDER">Order ahead</a></nav>
+
+<section class="hero">
+<div class="kb"><img src="img/gm03.jpg" alt=""><img src="img/gm08.jpg" alt=""><img src="img/gm04.jpg" alt=""><img src="img/gm02.jpg" alt=""></div>
+<div class="card glass" data-reveal><span class="I">[ Lay-bs ] Love thy neighbour.</span><p>Big brekkies, Elixir coffee and homemade cakes under a covered outdoor setting on Maygar Street. Something for everybody, and pups are always welcome.</p><div class="row"><span class="S">4.6</span><span class="lab">379 Google reviews</span></div></div>
+<div class="sun glass" data-reveal><span class="lab">Early birds, welcome</span>
+<svg viewBox="0 0 250 100"><path d="M10 92 Q125 -30 240 92" fill="none" stroke="rgba(244,243,238,.35)" stroke-width="2" stroke-dasharray="3 6"/><line x1="0" y1="92" x2="250" y2="92" stroke="rgba(244,243,238,.3)"/><circle id="sunc" r="11" fill="#a9d47a" cx="10" cy="92"/></svg>
+<div class="t lab"><span>5:30</span><span>1:30</span></div><div class="now"><i class="dot" id="dot"></i><span id="st">Brisbane time</span></div></div>
+<div class="mega S">Laybes</div>
+</section>
+
+<div class="marq"><div><span>Eggs Benny</span><b>&amp;</b><span>Potato Cakes</span><b>✦</b><span>Big Breakfast</span><b>&amp;</b><span>Smashed Avo</span><b>✦</b><span>Elixir Coffee</span><b>✦</b><span>Homemade Cakes</span><b>✦</b><span>Eggs Benny</span><b>&amp;</b><span>Potato Cakes</span><b>✦</b><span>Big Breakfast</span><b>&amp;</b><span>Smashed Avo</span><b>✦</b><span>Elixir Coffee</span><b>✦</b><span>Homemade Cakes</span><b>✦</b></div></div>
+
+<section class="col">
+<div class="w S split" style="left:100px;top:50px">Brekky</div>
+<figure class="ph" data-speed=".16" style="left:850px;top:0;width:470px;height:620px"><img src="img/gm05.jpg" alt=""><figcaption>Brekky</figcaption></figure>
+<figure class="ph" data-speed="-.12" style="left:50px;top:340px;width:380px;height:500px"><img src="img/gm04.jpg" alt=""><figcaption>Elixir coffee</figcaption></figure>
+<div class="w S out split" style="left:420px;top:640px">Pups</div>
+<figure class="ph" data-speed=".22" style="left:600px;top:930px;width:470px;height:560px"><img src="img/gm08.jpg" alt=""><figcaption>The covered courtyard</figcaption></figure>
+<p class="note" data-reveal style="left:100px;top:960px">"Staff were insanely happy and lovely! Best service ever!"<span class="lab" style="display:block;margin-top:14px;color:var(--paper);font-family:'Syne'">Google review</span></p>
+<figure class="ph" data-speed="-.2" style="left:1120px;top:820px;width:250px;height:330px"><img src="img/gm02.jpg" alt=""><figcaption>Fresh muffins</figcaption></figure>
+<div class="w S split" style="left:90px;top:1500px">&amp; cake.</div>
+<figure class="ph" data-speed=".14" style="left:960px;top:1330px;width:340px;height:260px"><img src="img/gm03.jpg" alt=""><figcaption>Maygar Street</figcaption></figure>
+</section>
+
+<section class="menu" id="menu">
+<div class="top"><div class="S split">The Menu</div><div class="I" data-reveal>Hover a heading. Brekky from 5:30 on weekdays.</div></div>
+<div class="hoverlist">
+<div class="item" data-img="img/gm05.jpg" data-cursor="EAT"><span class="n">01</span><h3>Brekky</h3><span class="d">eggs benny, big breakfast, deluxe smashed avo, potato cakes, salmon and fritters</span></div>
+<div class="item" data-img="img/gm03.jpg" data-cursor="EAT"><span class="n">02</span><h3>On the go</h3><span class="d">brekky wrap, chicken and bacon bagel, ham and cheese toastie</span></div>
+<div class="item" data-img="img/gm04.jpg" data-cursor="SIP"><span class="n">03</span><h3>Elixir Coffee</h3><span class="d">"coffee was spot on"</span></div>
+<div class="item" data-img="img/gm02.jpg" data-cursor="EAT"><span class="n">04</span><h3>Bakes &amp; Smoothies</h3><span class="d">muffins, homemade cakes and smoothies</span></div>
+<div class="item" data-img="img/gm08.jpg" data-cursor="WOOF"><span class="n">05</span><h3>Pups Welcome</h3><span class="d">covered outdoor seating, tables well spaced apart</span></div>
+</div></section>
+
+<section class="hs" id="reviews"><div class="hs-sticky"><div class="bg"><img src="img/gm08.jpg" alt=""></div>
+<div class="hs-track">
+<div class="intro"><div class="S split">Neighbours</div><div class="S out split">say</div><span class="lab">scroll sideways →</span></div>
+<div class="rev glass"><p class="q">"Magnificent breakfast (Eggs Bennie and Potato cakes), coffee was spot on."</p><div class="who"><span class="lab">Google review</span><span class="stars">★★★★★</span></div></div>
+<div class="pic"><img src="img/gm05.jpg" alt=""></div>
+<div class="rev glass"><p class="q">"Staff were insanely happy and lovely! Best service ever!"</p><div class="who"><span class="lab">Google review</span><span class="stars">★★★★★</span></div></div>
+<div class="pic"><img src="img/gm04.jpg" alt=""></div>
+<div class="rev glass"><p class="q">"The coffee is delicious, the cakes are absolutely wonderful."</p><div class="who"><span class="lab">Google review</span><span class="stars">★★★★★</span></div></div>
+<div class="big4"><div class="S">4.6</div><span class="lab">379 Google reviews</span></div>
+</div></div></section>
+
+<section class="visit" id="visit"><img src="img/gm03.jpg" alt="" data-speed=".15">
+<div class="ghost S out split">Say hello</div>
+<div class="panel glass" data-reveal>
+<div class="vg"><div><span class="lab">Address</span><p>110 Maygar Street<br>Windsor QLD 4030</p></div><div><span class="lab">Say hello</span><p>@cafelaybes</p></div>
+<div><span class="lab">Monday to Friday</span><p>5:30 am to 1:30 pm</p></div><div><span class="lab">Weekends</span><p>From 6 am</p></div></div>
+<a class="btn" href="#" data-cursor="ORDER">Order ahead <span>→</span></a></div></section>
+
+<footer><div class="S">Laybes</div><div class="f"><span>Love thy neighbour · Windsor, Brisbane</span><span>Brekky · Coffee · Cake</span><span>© 2027</span></div></footer>
+<script src="../fx/fx.js"></script>
+<script>
+(()=>{
+const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Australia/Brisbane'})),d=now.getDay(),h=now.getHours()+now.getMinutes()/60,wk=d>=1&&d<=5,o=wk?5.5:6,c=13.5;
+const open=h>=o&&h<c,p=Math.min(1,Math.max(0,(h-5.5)/8)),cx=10+230*p,cy=92-244*p*(1-p);
+const sc=document.getElementById('sunc');sc.setAttribute('cx',cx.toFixed(1));sc.setAttribute('cy',cy.toFixed(1));
+document.getElementById('dot').className='dot'+(open?'':' off');
+document.getElementById('st').textContent=open?'Open now in Brisbane':'Closed right now';
+})();
+</script>
+</body></html>
