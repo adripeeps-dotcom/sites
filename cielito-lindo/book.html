@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a call with Adrianna | Cielito Lindo</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--acc:#d7263d;--ink:#0d0b0a;--cream:#f6efe4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;background:var(--ink);color:var(--cream);font-family:'Space Grotesk',sans-serif;overflow-x:clip}
+a{color:inherit}
+.bg{position:fixed;inset:-40px;z-index:0}
+.bg img{width:100%;height:100%;object-fit:cover;filter:blur(26px) brightness(.42) saturate(1.3);transform:scale(1.1)}
+.bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 10%,transparent,rgba(13,11,10,.75) 70%)}
+.glow{position:fixed;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--acc),transparent 65%);opacity:.35;left:var(--cx,70%);top:var(--cy,30%);transform:translate(-50%,-50%);filter:blur(40px);pointer-events:none;z-index:1;transition:left .8s ease-out,top .8s ease-out}
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:40px 40px 60px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px}
+.back{display:inline-flex;gap:10px;align-items:center;text-decoration:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border-radius:40px}
+.me{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.me .av{width:38px;height:38px;border-radius:50%;background:var(--acc);display:flex;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:800;font-size:17px;color:var(--ink)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:60px;align-items:start}.card,.intro{min-width:0}
+.lab{font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:700;color:var(--acc)}
+h1{font-family:'Fraunces';font-variation-settings:"opsz" 144;font-size:104px;line-height:.9;letter-spacing:-.035em;font-weight:300;margin:22px 0 30px}
+h1 b{font-weight:900}
+h1 em{color:var(--acc)}
+.intro p{font-size:19px;line-height:1.6;color:rgba(246,239,228,.85);max-width:500px}
+.steps{margin-top:44px;display:grid;gap:14px;max-width:500px}
+.step{display:flex;gap:18px;align-items:center;padding:18px 22px;border-radius:16px}
+.step span{font-family:'Fraunces';font-size:30px;font-weight:900;color:var(--acc);width:30px}
+.step p{font-size:15px;line-height:1.45}
+.fh{margin-top:34px;font-size:14px;color:rgba(246,239,228,.65)}
+.fh a{color:var(--cream)}
+.card{border-radius:26px;padding:36px}
+.card h2{font-family:'Fraunces';font-size:34px;font-weight:600;display:flex;justify-content:space-between;align-items:baseline}
+.card h2 small{font-family:'Space Grotesk';font-size:13px;letter-spacing:.1em;color:rgba(246,239,228,.6);font-weight:500}
+.dwrap{display:flex;align-items:center;gap:8px;margin:24px 0 22px}.days{display:flex;gap:10px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;scrollbar-width:none;flex:1}.days::-webkit-scrollbar{display:none}.arr{flex:0 0 38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:inherit;font-size:22px;line-height:1;cursor:pointer;transition:.2s}.arr:hover{border-color:var(--acc);background:var(--acc);color:var(--ink)}
+.day{flex:0 0 78px;scroll-snap-align:start;border-radius:14px;padding:14px 0;text-align:center;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);cursor:pointer;transition:.25s;font:inherit;color:inherit}
+.day b{display:block;font-family:'Fraunces';font-size:28px;margin-top:4px}
+.day small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.day:hover{border-color:var(--acc)}
+.day.on{background:var(--acc);color:var(--ink);border-color:var(--acc)}
+.times{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-height:252px;overflow-y:auto;padding-right:4px}
+.t{padding:14px 0;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);text-align:center;font:500 15px 'Space Grotesk';color:inherit;cursor:pointer;transition:.2s}
+.t:hover{border-color:var(--acc)}
+.t.on{background:var(--cream);color:var(--ink)}
+.tz{font-size:12px;color:rgba(246,239,228,.55);margin-top:12px}
+form{display:grid;gap:12px;margin-top:24px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,textarea{width:100%;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:var(--cream);font:400 15px 'Space Grotesk';outline:none;transition:border .2s}
+input:focus,textarea:focus{border-color:var(--acc)}
+input::placeholder,textarea::placeholder{color:rgba(246,239,228,.45)}
+textarea{min-height:90px;resize:vertical}
+.go{margin-top:6px;padding:20px;border-radius:60px;border:0;background:var(--acc);color:var(--ink);font:700 15px 'Space Grotesk';letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.go:hover{background:var(--cream);letter-spacing:.2em}
+.go:disabled{opacity:.45;cursor:not-allowed;letter-spacing:.14em;background:var(--acc)}
+.done{display:none;text-align:center;padding:40px 10px}
+.done .F{font-family:'Fraunces';font-size:56px;font-weight:300;line-height:1}
+.done .F b{font-weight:900;color:var(--acc)}
+.done p{margin-top:18px;font-size:17px;line-height:1.6;color:rgba(246,239,228,.8)}
+.card.sent form,.card.sent .pick{display:none}.card.sent .done{display:block}
+.alt{margin-top:18px;text-align:center;font-size:13px;color:rgba(246,239,228,.6)}
+footer{margin-top:70px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,239,228,.45)}
+
+@media (max-width:820px){
+ .wrap{padding:18px 16px 40px}
+ header{margin-bottom:34px;gap:12px}
+ .back{padding:10px 14px;font-size:11px;letter-spacing:.1em;white-space:nowrap}
+ .me{font-size:11px;letter-spacing:.08em;gap:8px}.me .av{width:30px;height:30px;font-size:14px}
+ .me span.full{display:none}
+ .grid{grid-template-columns:minmax(0,1fr);gap:28px}
+ h1{font-size:15vw;margin:14px 0 18px}
+ .intro p{font-size:16px}
+ .steps,.fh{display:none}
+ .card{padding:22px 16px;border-radius:22px}
+ .card h2{font-size:26px}
+ .dwrap{gap:6px}.arr{flex:0 0 32px;height:32px;font-size:18px}
+ .day{flex:0 0 64px;padding:10px 0}.day b{font-size:22px}
+ .times{grid-template-columns:repeat(3,1fr);gap:8px;max-height:none}
+ .t{padding:12px 0;font-size:14px}
+ .row{grid-template-columns:1fr}
+ input,textarea{font-size:16px}
+ footer{flex-direction:column;gap:8px;margin-top:40px}
+}
+</style></head><body>
+<div class="bg"><img src="img/gm02.jpg" alt=""></div><div class="glow"></div>
+<div class="wrap">
+<header><a class="back glass" href="index.html">← Back to your preview</a><div class="me"><div class="av">A</div><span>Adrianna Peeples<span class="full"> · Web design</span></span></div></header>
+<div class="grid">
+<div class="intro">
+<span class="lab">Made for Cielito Lindo</span>
+<h1 class="split">Like what you see?</h1>
+<p>That preview was designed just for Cielito Lindo. The real site can do even more: online ordering, reservations and a menu you can update in seconds. Let's hop on a quick 15-minute call and talk through what you'd want, what's missing and what you'd change.</p>
+<div class="steps">
+<div class="step glass" data-reveal><span>1</span><p><b>Quick call.</b> Tell me what you love and what you'd change.</p></div>
+<div class="step glass" data-reveal><span>2</span><p><b>I build the real thing.</b> Nothing technical on your end.</p></div>
+<div class="step glass" data-reveal><span>3</span><p><b>You go live.</b> Your first impression finally matches your food.</p></div>
+</div>
+<p class="fh">See another site I built: <a href="https://farrenhill.com" target="_blank" rel="noopener">farrenhill.com</a></p>
+</div>
+<div class="card glass" id="card">
+<div class="pick"><h2>Pick a time <small>15 min · Call</small></h2>
+<div class="dwrap"><button type="button" class="arr" id="prev" aria-label="Earlier dates">‹</button><div class="days" id="days"></div><button type="button" class="arr" id="next" aria-label="Later dates">›</button></div><div class="times" id="times"></div>
+<p class="tz" id="tz"></p></div>
+<form id="f"><div class="row"><input required name="name" placeholder="Your name"><input name="phone" placeholder="Phone"></div>
+<input required type="email" name="email" placeholder="Email">
+<textarea name="note" placeholder="Anything you'd love on the real site? (optional)"></textarea>
+<button class="go" id="go" disabled>Pick a time above</button></form>
+<div class="done"><div class="F">You're <b>booked.</b></div><p id="conf"></p></div>
+<p class="alt">Prefer email? <a href="mailto:adripeeps@gmail.com?subject=Cielito%20Lindo%20website">adripeeps@gmail.com</a></p>
+</div></div>
+<footer><span>Adrianna Peeples · Web design</span><span>A preview made for Cielito Lindo</span></footer>
+</div>
+<script>
+// Live booking: slots + bookings go through Adrianna's Google Calendar connector.
+const ENDPOINT="https://script.google.com/macros/s/AKfycbx-Pa0apX_od86yzR3ahLi9QK2dVt7aACQFV3E2gMfL8pzoksr5MLMrHpopQC5o7q3K/exec", R="Cielito Lindo";
+const days=document.getElementById('days'),times=document.getElementById('times'),go=document.getElementById('go'),tzEl=document.getElementById('tz');
+let groups={},pickD=null,pickT=null;
+const tzName=new Intl.DateTimeFormat('en-US',{timeZoneName:'long'}).formatToParts(new Date()).find(x=>x.type==='timeZoneName').value;
+tzEl.textContent=`Times shown in your time zone (${tzName}).`;
+const dkey=d=>d.toLocaleDateString('en-CA');
+function mockSlots(){const o=[],n=Date.now(),m=new Date(new Date().toLocaleDateString('en-CA',{timeZone:'Asia/Makassar'})+'T00:00:00+08:00').getTime();for(let d=0;d<=12;d++)for(let h=0;h<24;h++){if(h>=5&&h<13)continue;const s=m+(d*24+h)*3600e3;if(s-n>=3*864e5)o.push(new Date(s).toISOString())}return o}
+async function load(){
+  times.innerHTML='<p class="tz">Loading open times…</p>';
+  let slots;
+  try{ if(!ENDPOINT.startsWith('http')) throw 0; const r=await fetch(ENDPOINT+'?action=slots'); const j=await r.json(); slots=j.slots||[]; }
+  catch(e){ slots=ENDPOINT.startsWith('http')?[]:mockSlots(); }
+  const t0=new Date();t0.setHours(0,0,0,0);
+  const lo=new Date(t0);lo.setDate(lo.getDate()+4);const hi=new Date(t0);hi.setDate(hi.getDate()+12);
+  groups={}; slots.forEach(iso=>{const d=new Date(iso);if(d<lo||d>=hi)return;const hr=d.getHours();if(hr<7||hr>21)return;(groups[dkey(d)]=groups[dkey(d)]||[]).push(d)});
+  days.innerHTML='';
+  const keys=Object.keys(groups).sort();
+  if(!keys.length){times.innerHTML='<p class="tz">No open times right now. Email me below and we\'ll find one.</p>';return}
+  keys.forEach((k,i)=>{const x=groups[k][0],b=document.createElement('button');b.type='button';b.className='day';
+    b.innerHTML=`<small>${x.toLocaleDateString('en-US',{weekday:'short'})}</small><b>${x.getDate()}</b><small>${x.toLocaleDateString('en-US',{month:'short'})}</small>`;
+    b.onclick=()=>{pickD=k;[...days.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');draw()};days.appendChild(b);if(!i)b.click()});
+}
+function draw(){times.innerHTML='';pickT=null;upd();groups[pickD].forEach(d=>{const b=document.createElement('button');b.type='button';b.className='t';
+  b.textContent=d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  b.onclick=()=>{pickT=d;[...times.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');upd()};times.appendChild(b)})}
+function upd(){go.disabled=!pickT;go.textContent=pickT?`Book ${pickT.toLocaleDateString('en-US',{weekday:'long'})} · ${pickT.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}`:'Pick a time above'}
+document.getElementById('f').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);
+  go.disabled=true;go.textContent='Booking…';
+  const body={name:f.get('name'),email:f.get('email'),phone:f.get('phone'),note:f.get('note'),restaurant:R,start:pickT.toISOString(),preview:location.href.replace(/book\.html.*$/,''),tz:Intl.DateTimeFormat().resolvedOptions().timeZone};
+  const k=new URLSearchParams(location.search).get('k');if(k){body.key=k;body.test=true}
+  let j={ok:true};
+  if(ENDPOINT.startsWith('http')){try{const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});j=await r.json()}catch(err){j={ok:false,error:'Something went wrong. Please email me instead.'}}}
+  if(!j.ok){ if(j.error==='taken'){alert('Someone just grabbed that time. Please pick another.');load()} else {alert(j.error||'Something went wrong.');upd()} return }
+  const when=pickT.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})+' at '+pickT.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+  document.getElementById('conf').textContent=`See you ${when}. A calendar invite with a Google Meet link is on its way to ${body.email}.`;
+  document.getElementById('card').classList.add('sent')};
+document.getElementById('prev').onclick=()=>days.scrollBy({left:-288});document.getElementById('next').onclick=()=>days.scrollBy({left:288});
+load();
+</script>
+<script src="../fx/fx.js"></script>
+</body></html>
