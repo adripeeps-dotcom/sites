@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mi Paella | Bar &amp; Restaurant | Little Rock</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@500;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../fx/fx.css">
+<style>
+:root{--saf:#f2a516;--red:#b8301d;--ink:#1c120d;--cream:#f5e9d2;--olive:#5c6b2e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--cream);color:var(--ink);font-family:'Syne',sans-serif;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+.F{font-family:'Fraunces',serif;font-variation-settings:"opsz" 144}
+.lab{font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:700}
+
+.loader{background:var(--saf);flex-direction:column}
+.loader .F{font-size:140px;font-weight:900;font-style:italic;color:var(--red)}
+.loader .lab{margin-top:10px}
+
+nav{position:fixed;top:18px;left:24px;right:24px;z-index:800;display:flex;justify-content:space-between;align-items:center;padding:14px 18px 14px 30px;border-radius:60px;background:rgba(28,18,13,.22);color:var(--cream)}
+nav .logo{font-family:'Fraunces';font-weight:800;font-size:24px}
+nav .links{display:flex;gap:38px}
+nav .links a{position:relative}nav .links a::after{content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;background:var(--saf);transition:right .35s}nav .links a:hover::after{right:0}
+nav .order{background:var(--saf);color:var(--ink);padding:14px 24px;border-radius:40px;transition:.3s}nav .order:hover{background:var(--cream)}
+
+.hero{position:relative;height:100vh;min-height:900px;overflow:hidden;background:var(--red);color:var(--cream)}
+.hero .blob{position:absolute;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle,var(--saf) 0%,rgba(242,165,22,0) 62%);left:var(--cx,30%);top:var(--cy,40%);transform:translate(-50%,-50%);filter:blur(30px);opacity:.7;pointer-events:none;transition:left .6s ease-out,top .6s ease-out}
+.hero .plate{position:absolute;right:-140px;top:50%;width:880px;height:880px;margin-top:-420px;border-radius:50%;overflow:hidden;animation:spin 60s linear infinite;box-shadow:0 40px 120px rgba(0,0,0,.45)}
+.hero .plate img{width:100%;height:100%;object-fit:cover;transform:scale(1.25)}
+.hero .clip{position:absolute;left:44px;top:200px;z-index:3;font-family:'Fraunces';font-weight:900;font-size:300px;line-height:.8;letter-spacing:-.045em}
+.hero .sub{position:absolute;left:52px;top:470px;z-index:3;font-family:'Fraunces';font-style:italic;font-weight:300;font-size:110px;line-height:.95}
+.hero .sub b{font-weight:800;color:var(--saf)}
+.hero .card{position:absolute;left:52px;bottom:56px;z-index:4;width:520px;padding:28px 30px;border-radius:20px;font-size:16px;line-height:1.65;font-weight:500}
+.seal{position:absolute;left:640px;top:600px;width:220px;height:220px;z-index:5}
+.seal .rot{position:absolute;inset:0;border-radius:50%;background:rgba(242,165,22,.85);animation:spin 16s linear infinite}
+.seal .c{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Fraunces';font-weight:900;font-style:italic;font-size:64px;color:var(--ink);line-height:.9}
+.seal .c small{font-family:'Syne';font-style:normal;font-size:11px;letter-spacing:.2em;font-weight:800;margin-top:6px}
+
+.marq{background:var(--ink);color:var(--saf);padding:26px 0}
+.marq span{font-family:'Fraunces';font-style:italic;font-size:54px;padding-right:30px}
+.marq b{color:var(--cream);font-weight:300;padding-right:30px;font-size:54px}
+
+.wait{padding:170px 60px 120px;display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center}
+.wait h2{font-family:'Fraunces';font-weight:900;font-size:200px;line-height:.82;letter-spacing:-.04em}
+.wait h2 .it{font-weight:300;font-style:italic;color:var(--red)}
+.wait blockquote{font-family:'Fraunces';font-style:italic;font-size:44px;line-height:1.2;font-weight:350;border-left:6px solid var(--saf);padding-left:36px}
+.wait cite{display:block;font-family:'Syne';font-style:normal;font-size:12px;letter-spacing:.3em;text-transform:uppercase;margin-top:24px;font-weight:700;color:var(--red)}
+
+.col{position:relative;height:1500px}
+.col .w{position:absolute;font-family:'Fraunces';font-size:230px;line-height:.85;letter-spacing:-.04em;z-index:3;pointer-events:none}
+.col .ph{position:absolute;overflow:hidden;z-index:1;border-radius:6px}
+.col .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.col .ph:hover img{transform:scale(1.08)}
+.col .arch{border-radius:300px 300px 6px 6px}
+.col .round{border-radius:50%}
+
+.carta{padding:140px 60px 160px;background:var(--ink);color:var(--cream)}
+.carta .ttl{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:60px}
+.carta .ttl h2{font-family:'Fraunces';font-size:170px;font-weight:300;font-style:italic;line-height:.8;letter-spacing:-.03em}
+.carta .ttl .lab{color:var(--saf)}
+.grp{display:grid;grid-template-columns:260px 1fr;border-top:1px solid rgba(245,233,210,.2);padding:34px 0}
+.grp .h{font-family:'Fraunces';font-size:30px;font-weight:700}
+.grp .h .rn{display:block;font-size:80px;font-weight:900;color:var(--saf);line-height:.9}
+.dish{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;position:relative;z-index:2}
+.dish .F{font-size:60px;font-weight:350;transition:color .35s,transform .45s cubic-bezier(.2,.85,.2,1);display:inline-block}
+.dish:hover .F{color:var(--saf);font-style:italic;transform:translateX(26px)}
+.dish .lab{color:rgba(245,233,210,.5)}
+
+.patio{position:relative;height:110vh;min-height:900px;overflow:hidden}
+.patio>img{position:absolute;inset:-12% 0;width:100%;height:124%;object-fit:cover;object-position:50% 60%;filter:saturate(1.15)}
+.patio .panel{position:absolute;left:60px;bottom:80px;z-index:2;width:660px;padding:50px;border-radius:26px;color:var(--cream);background:rgba(28,18,13,.28)}
+.patio h2{font-family:'Fraunces';font-size:150px;font-weight:300;font-style:italic;line-height:.85;letter-spacing:-.03em}
+.patio h2 b{font-style:normal;font-weight:900;color:var(--saf)}
+.patio p{font-size:18px;line-height:1.6;margin-top:26px;font-weight:500}
+
+.hs{background:var(--saf)}
+.hs .hs-track{align-items:center}
+.hs .intro{flex:0 0 620px}
+.hs .intro h2{font-family:'Fraunces';font-size:180px;font-weight:900;line-height:.8;letter-spacing:-.04em}
+.hs .intro .lab{display:block;margin-top:26px}
+.q{flex:0 0 560px;height:560px;padding:46px;border-radius:24px;background:rgba(245,233,210,.4);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(28,18,13,.15);display:flex;flex-direction:column;justify-content:space-between}
+.q p{font-family:'Fraunces';font-size:44px;line-height:1.12;font-style:italic}
+.qi{flex:0 0 440px;height:640px;border-radius:300px 300px 24px 24px;overflow:hidden}
+.qi img{width:100%;height:100%;object-fit:cover}
+.score{flex:0 0 620px;font-family:'Fraunces';font-size:320px;font-weight:300;font-style:italic;color:var(--red);line-height:.8}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);color:var(--cream)}
+.visit .t{padding:130px 60px}
+.visit h2{font-family:'Fraunces';font-size:170px;font-weight:300;font-style:italic;line-height:.85}
+.visit h2 b{font-weight:900;font-style:normal;color:var(--saf)}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:60px 0}
+.vg .lab{color:var(--saf);display:block;margin-bottom:12px}
+.vg p{font-family:'Fraunces';font-size:26px;line-height:1.35}
+.btn{display:inline-flex;gap:14px;background:var(--saf);color:var(--ink);padding:20px 36px;border-radius:50px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:15px;transition:.3s}
+.btn:hover{background:var(--cream);gap:26px}
+.visit .img{overflow:hidden;position:relative}
+.visit .img img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover}
+footer{padding:50px 60px 30px;background:var(--red);color:var(--cream);overflow:hidden}
+footer .F{font-size:17vw;font-weight:900;font-style:italic;line-height:.8;letter-spacing:-.05em;text-align:center}
+footer .f{display:flex;justify-content:space-between;margin-top:24px}
+@media (max-width:820px){
+ nav{left:10px;right:10px;top:10px;padding:10px 12px 10px 18px}nav .links{display:none}nav .logo{font-size:19px}nav .order{padding:11px 16px;font-size:10px;letter-spacing:.2em}
+ .loader .F{font-size:22vw}
+ .hero{height:auto;min-height:100svh;padding:120px 20px 40px;display:flex;flex-direction:column}
+ .hero .plate{position:relative;order:3;right:auto;top:auto;margin:30px auto 0;width:86vw;height:86vw;align-self:center}
+ .hero .clip{position:relative;left:auto;top:auto;font-size:30vw;order:1;--foodsize:520px;margin-top:10px}
+ .hero .sub{position:relative;left:auto;top:auto;font-size:15vw;order:2;margin-top:8px}
+ .hero>.lab{position:relative!important;left:auto!important;top:auto!important;order:0}
+ .hero .card{position:relative;left:auto;bottom:auto;width:auto;order:4;margin-top:28px;font-size:15px;padding:20px}
+ .seal{left:auto;right:16px;top:auto;width:120px;height:120px;position:absolute;bottom:auto;margin-top:0;top:430px}
+ .seal .c{font-size:36px}.seal .c small{font-size:8px}
+ .hero .blob{width:420px;height:420px}
+ .marq span,.marq b{font-size:30px}
+ .wait{grid-template-columns:1fr;padding:70px 20px;gap:36px}.wait h2{font-size:24vw}.wait blockquote{font-size:24px;padding-left:20px}
+ .carta{padding:70px 20px}.carta .ttl{flex-direction:column;gap:10px;margin-bottom:30px}.carta .ttl h2{font-size:22vw}
+ .grp{grid-template-columns:1fr;padding:24px 0}.grp .h .rn{font-size:50px;display:inline-block;margin-right:12px}
+ .dish{flex-direction:column;gap:2px}.dish .F{font-size:30px}
+ .patio{height:auto;min-height:0;padding:260px 20px 30px}.patio>img{inset:0;height:100%}
+ .patio .panel{position:relative;left:auto;bottom:auto;width:auto;padding:26px}.patio h2{font-size:17vw}.patio p{font-size:16px}
+ .visit{grid-template-columns:1fr}.visit .t{padding:70px 20px}.visit h2{font-size:21vw}.vg{grid-template-columns:1fr 1fr;gap:24px}.vg p{font-size:19px}
+ .visit .img{height:90vw}
+ .hs .intro h2{font-size:21vw}.score{font-size:40vw}.q p{font-size:26px}.btn{padding:18px 26px;font-size:12px;letter-spacing:.1em}.seal{width:104px;height:104px;right:10px;top:455px}.seal .c{font-size:30px}
+ footer{padding:40px 20px 24px}footer .f{flex-direction:column;gap:6px}
+}
+.static .hs{height:auto}.static .hs-sticky{position:relative}
+</style></head><body data-book="book.html" data-pvlabel="A preview made for Mi Paella">
+
+<div class="loader"><div class="F split">Mi Paella</div><div class="lab">Bar · Restaurant · Little Rock</div></div>
+
+<nav class="glass"><div class="logo">Mi Paella</div><div class="links lab"><a href="#carta">La Carta</a><a href="#patio">Patio</a><a href="#reviews">Reviews</a><a href="#visit">Visit</a></div><a class="order lab" href="#" data-cursor="ORDER">Order Online</a></nav>
+
+<section class="hero">
+<div class="blob"></div>
+<div class="plate"><img src="img/gm07.jpg" alt=""></div>
+<p class="lab" style="position:absolute;left:52px;top:150px;color:var(--saf);z-index:3">Spanish cuisine · Little Rock, Arkansas</p>
+<div class="clip split foodtext" data-food="img/gm06.jpg" data-cursor="MOVE">Paella</div>
+<div class="sub">made to <b>share.</b></div>
+<p class="card glass" data-reveal>A family-owned neighborhood restaurant &amp; bar on N University Ave. Our signature Mi Paella, squid ink paella, ceviche, homemade tiramisu, and a pitcher of mojitos on the patio.</p>
+<div class="seal"><svg class="rot" viewBox="0 0 220 220"><defs><path id="c" d="M110,110 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text font-family="Syne" font-weight="800" font-size="14" letter-spacing="5"><textPath href="#c">FAMILY OWNED ✦ SERVED IN THE PAN ✦ </textPath></text></svg><div class="c">4.7<small>★★★★★ GOOGLE</small></div></div>
+</section>
+
+<div class="marq"><div><span>Mi Paella</span><b>/</b><span>Squid Ink Paella</span><b>/</b><span>Ceviche</span><b>/</b><span>Yucca Fries</span><b>/</b><span>Mojito Pitchers</span><b>/</b><span>Tiramisu</span><b>/</b><span>Mi Paella</span><b>/</b><span>Squid Ink Paella</span><b>/</b><span>Ceviche</span><b>/</b><span>Yucca Fries</span><b>/</b><span>Mojito Pitchers</span><b>/</b><span>Tiramisu</span><b>/</b></div></div>
+
+<section class="wait">
+<h2><span class="split">Worth</span><span class="split it">the wait.</span></h2>
+<blockquote data-reveal>"The paella takes a while folks… but is amazing. The owner's son coming to each table is AMAZING."<cite>Stephanie M. · Google</cite></blockquote>
+</section>
+
+<section class="col">
+<div class="w split" style="left:80px;top:20px;font-weight:900">Tapas,</div>
+<figure class="ph arch" data-speed=".2" style="left:900px;top:0;width:430px;height:600px"><img src="img/gm01.jpg" alt=""></figure>
+<figure class="ph" data-speed="-.12" style="left:120px;top:300px;width:420px;height:420px"><img src="img/gm09.jpg" alt=""></figure>
+<div class="w split" style="left:470px;top:560px;font-style:italic;font-weight:300;color:var(--red)">mojitos</div>
+<figure class="ph round" data-speed=".25" style="left:620px;top:850px;width:380px;height:380px"><img src="img/gm03.jpg" alt=""></figure>
+<figure class="ph" data-speed="-.18" style="left:1080px;top:760px;width:300px;height:400px"><img src="img/gm02.jpg" alt=""></figure>
+<div class="w split" style="left:90px;top:1180px;font-weight:900">&amp; paella.</div>
+<figure class="ph" data-speed=".1" style="left:160px;top:860px;width:300px;height:230px"><img src="img/gm04.jpg" alt=""></figure>
+</section>
+
+<section class="carta" id="carta">
+<div class="ttl"><h2 class="split">La Carta</h2><span class="lab">hover a dish</span></div>
+<div class="hoverlist">
+<div class="grp"><div class="h"><span class="rn">I.</span>Paellas</div><div>
+<div class="dish" data-img="img/gm07.jpg" data-cursor="¡SÍ!"><span class="F">Mi Paella</span><span class="lab">house signature</span></div>
+<div class="dish" data-img="img/gm06.jpg" data-cursor="¡SÍ!"><span class="F">Squid Ink Paella</span><span class="lab">our specialty</span></div>
+<div class="dish" data-img="img/gm06.jpg" data-cursor="¡SÍ!"><span class="F">Chicken, Bacon &amp; Sausage</span><span class="lab">paella</span></div></div></div>
+<div class="grp"><div class="h"><span class="rn">II.</span>Tapas &amp; Platos</div><div>
+<div class="dish" data-img="img/gm09.jpg" data-cursor="¡SÍ!"><span class="F">Mushroom &amp; Shrimp</span><span class="lab">crusty bread</span></div>
+<div class="dish" data-img="img/gm03.jpg" data-cursor="¡SÍ!"><span class="F">Ceviche</span><span class="lab">when it's on special</span></div>
+<div class="dish" data-img="img/gm01.jpg" data-cursor="¡SÍ!"><span class="F">Yucca Fries · Stroganoff</span><span class="lab">to share</span></div></div></div>
+<div class="grp"><div class="h"><span class="rn">III.</span>Bar &amp; Dulces</div><div>
+<div class="dish" data-img="img/gm00.jpg" data-cursor="¡SÍ!"><span class="F">Mojito Pitchers · Margaritas</span><span class="lab">on the patio</span></div>
+<div class="dish" data-img="img/gm04.jpg" data-cursor="¡SÍ!"><span class="F">Homemade Tiramisu</span><span class="lab">cheesecake too</span></div></div></div>
+</div></section>
+
+<section class="patio" id="patio"><img src="img/gm00.jpg" alt="" data-speed=".14">
+<div class="panel glass" data-reveal><h2>Under <b>the</b> trees.</h2><p>A shady patio and a table that feels like yours. Small, cozy and welcoming. The owner's family stops by every table to make sure you feel at home.</p></div></section>
+
+<section class="hs" id="reviews"><div class="hs-sticky"><div class="hs-track">
+<div class="intro"><h2><span class="split">Guests</span><span class="split" style="font-style:italic;font-weight:300">say.</span></h2><span class="lab">keep scrolling →</span></div>
+<div class="q"><p>"Great people, great food, great atmosphere, the best in Arkansas."</p><span class="lab">★★★★★ Google review</span></div>
+<div class="qi"><img src="img/gm07.jpg" alt=""></div>
+<div class="q"><p>"The Mi Paella is one of my favorite eats."</p><span class="lab">★★★★★ Google review</span></div>
+<div class="qi"><img src="img/gm04.jpg" alt=""></div>
+<div class="q"><p>"Tiramisu was definitely freshly homemade and great."</p><span class="lab">★★★★★ Google review</span></div>
+<div class="score">4.7★</div>
+</div></div></section>
+
+<section class="visit" id="visit"><div class="t"><h2><span class="split">Ven a</span><b class="split">vernos.</b></h2>
+<div class="vg"><div><span class="lab">Lunch</span><p>Mon – Fri<br>11 AM – 2 PM</p></div><div><span class="lab">Dinner</span><p>Mon – Fri<br>5 PM – 9 PM</p></div><div><span class="lab">Find us</span><p>1501 N University Ave<br>Little Rock, AR 72207</p></div><div><span class="lab">Call</span><p>(501) 500-3023<br><span style="font-size:18px;opacity:.7">Sat &amp; Sun closed</span></p></div></div>
+<a class="btn" href="tel:5015003023" data-cursor="CALL">Reserve a table <span>→</span></a></div>
+<div class="img"><img src="img/gm06.jpg" alt="" data-speed=".12"></div></section>
+<footer><div class="F">Mi Paella</div><div class="f lab"><span>Family owned · Women &amp; Latino-owned</span><span>Little Rock, Arkansas</span></div></footer>
+<script src="../fx/fx.js"></script>
+</body></html>
